@@ -55,17 +55,14 @@ python -m venv venv
 source venv/bin/activate (Linux/Mac)
 venv\Scripts\activate (Windows)
 
-3️⃣ Install Project Dependencies:
-pip install -r requirements.txt
-
-4️⃣ Apply Database Migrations:
+3️⃣ Apply Database Migrations:
 python manage.py makemigrations
 python manage.py migrate
 
-5️⃣ Create a Superuser Account:
+4️⃣ Create a Superuser Account:
 python manage.py createsuperuser
 
-6️⃣ Start the Development Server:
+5️⃣ Start the Development Server:
 python manage.py runserver
 
 🌐 Open your browser and visit:
