@@ -7,6 +7,7 @@
 - **Gourab Saha**
 - **Ishita Mukherjee**
 - **Debmalya Sanyal**
+  
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📢 Overview:
 Festiva is a modern, vibrant platform where users can 🌟 discover, 🎟️ book, and 📅 manage events like:
