@@ -1,6 +1,7 @@
 🎉 𝐅𝐞𝐬𝐭𝐢𝐯𝐚 - 𝐄𝐯𝐞𝐧𝐭 𝐁𝐨𝐨𝐤𝐢𝐧𝐠 & 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭 𝐒𝐲𝐬𝐭𝐞𝐦 🎉
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 ## Team Members
 
 - **Avijit Pakhira**
@@ -9,6 +10,7 @@
 - **Debmalya Sanyal**
   
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 📢 Overview:
 Festiva is a modern, vibrant platform where users can 🌟 discover, 🎟️ book, and 📅 manage events like:
 - 🎶 Concerts
