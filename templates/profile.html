@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}My Profile | Festiva{% endblock %}
+
+{% block content %}
+<div class="container py-5" data-aos="fade-up">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card card-custom" data-aos="zoom-in">
+                <div class="card-header-custom">
+                    <h2 class="text-center mb-0"><i class="bi bi-person-circle me-2"></i>My Profile</h2>
+                </div>
+                <div class="card-body text-center">
+                    {% if user.profile_picture %}
+                        <img src="{{ user.profile_picture.url }}" class="rounded-circle" width="150" height="150" data-aos="fade-down">
+                    {% else %}
+                        <i class="bi bi-person-fill fs-1" data-aos="fade-down"></i>
+                    {% endif %}
+                    
+                    <h3 class="mt-3" data-aos="fade-up">{{ user.first_name }} {{ user.last_name }}</h3>
+                    <p class="text-muted" data-aos="fade-up">{{ user.email }}</p>
+                    
+                    <p data-aos="fade-up"><strong>Phone:</strong> {{ user.phone|default:"Not Provided" }}</p>
+                    <p data-aos="fade-up"><strong>Bio:</strong> {{ user.bio|default:"No bio added yet." }}</p>
+
+                    {% if user.role == 'organizer' %}
+                    <hr data-aos="fade-up">
+                    <h5 data-aos="fade-up">Organization Details</h5>
+                    <p data-aos="fade-up"><strong>Name:</strong> {{ user.organization_name|default:"-" }}</p>
+                    <p data-aos="fade-up"><strong>Website:</strong> {{ user.website|default:"-" }}</p>
+                    <p data-aos="fade-up"><strong>Tax ID:</strong> {{ user.tax_id|default:"-" }}</p>
+                    {% endif %}
+                    
+                    <a href="{% url 'edit_profile' %}" class="btn btn-custom-primary mt-4" data-aos="zoom-in-up">
+                        <i class="bi bi-pencil-square me-2"></i>Edit Profile
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<!-- AOS Library CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+    .profile-picture-container {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .profile-picture {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 3px solid #6a0dad;
+    }
+
+    .profile-picture-placeholder {
+        width: 100%;
+        height: 100%;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6a0dad;
+        border: 3px solid #6a0dad;
+    }
+
+    .card-header-custom {
+        background-color: #6a0dad;
+        color: white;
+        padding: 1.5rem;
+        border-radius: 0.375rem 0.375rem 0 0 !important;
+    }
+
+    .btn-custom-primary {
+        background-color: #6a0dad;
+        color: white;
+        border: none;
+    }
+
+    .btn-custom-primary:hover {
+        background-color: #5a0b9d;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<!-- AOS Library JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000, // Animation duration
+        once: true, // Whether animation should happen only once
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+
+{% block title %}Browse Events | Festiva{% endblock %}
+
+{% block extra_css %}
+<style>
+    .filter-section {
+        background-color: #f8f9fa;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .event-card {
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+    
+    .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .event-img {
+        height: 200px;
+        object-fit: cover;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+    }
+    
+    .category-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .pagination .page-item.active .page-link {
+        background-color: #6f42c1;
+        border-color: #6f42c1;
+    }
+    
+    .pagination .page-link {
+        color: #6f42c1;
+    }
+    
+    .no-events {
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h1 class="mb-0">Browse Events</h1>
+            <p class="text-muted">Find your next great experience</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+            <a href="{% url 'create_event' %}" class="btn btn-custom-primary">
+                <i class="bi bi-plus-circle me-2"></i> Create Event
+            </a>
+        </div>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <form method="get" action="{% url 'browse_events' %}">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-select" id="category" name="category">
+                        <option value="">All Categories</option>
+                        {% for category in categories %}
+                        <option value="{{ category.id }}" {% if selected_category == category.id %}selected{% endif %}>
+                            {{ category.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="date" class="form-label">Date</label>
+                    <select class="form-select" id="date" name="date">
+                        <option value="">Any Date</option>
+                        <option value="today" {% if selected_date == 'today' %}selected{% endif %}>Today</option>
+                        <option value="week" {% if selected_date == 'week' %}selected{% endif %}>This Week</option>
+                        <option value="month" {% if selected_date == 'month' %}selected{% endif %}>This Month</option>
+                        <option value="upcoming" {% if selected_date == 'upcoming' %}selected{% endif %}>Upcoming</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="sort" class="form-label">Sort By</label>
+                    <select class="form-select" id="sort" name="sort">
+                        <option value="newest" {% if selected_sort == 'newest' %}selected{% endif %}>Newest First</option>
+                        <option value="oldest" {% if selected_sort == 'oldest' %}selected{% endif %}>Oldest First</option>
+                        <option value="price_low" {% if selected_sort == 'price_low' %}selected{% endif %}>Price: Low to High</option>
+                        <option value="price_high" {% if selected_sort == 'price_high' %}selected{% endif %}>Price: High to Low</option>
+                        <option value="date_soon" {% if selected_sort == 'date_soon' %}selected{% endif %}>Date: Soonest First</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search events..." name="q" value="{{ search_query }}">
+                        <button class="btn btn-custom-primary" type="submit">
+                            <i class="bi bi-search"></i> Search
+                        </button>
+                        <a href="{% url 'browse_events' %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-counterclockwise"></i> Reset
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Events Grid -->
+    {% if events %}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for event in events %}
+        <div class="col">
+            <div class="card card-custom event-card">
+                <div class="position-relative">
+                    <img src="{{ event.image.url }}" class="card-img-top event-img" alt="{{ event.title }}">
+                    <span class="badge bg-primary-custom category-badge">
+                        {{ event.category.name }}
+                    </span>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">
+                            <i class="bi bi-calendar-event me-1"></i>
+                            {{ event.start_date|date:"M d, Y" }}
+                        </span>
+                        <span class="fw-bold text-primary-custom">
+                            ${{ event.price }}
+                        </span>
+                    </div>
+                    <h5 class="card-title">{{ event.title }}</h5>
+                    <p class="card-text text-muted">
+                        <i class="bi bi-geo-alt me-1"></i>
+                        {{ event.location|truncatechars:30 }}
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-muted small">
+                            <i class="bi bi-people me-1"></i>
+                            {{ event.tickets.count }} attending
+                        </span>
+                        <a href="{% url 'event_detail' event.id %}" class="btn btn-sm btn-custom-primary">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <nav class="mt-5">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_date %}&date={{ selected_date }}{% endif %}{% if selected_sort %}&sort={{ selected_sort }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}">
+                    <i class="bi bi-chevron-double-left"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_date %}&date={{ selected_date }}{% endif %}{% if selected_sort %}&sort={{ selected_sort }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}">
+                    <i class="bi bi-chevron-left"></i>
+                </a>
+            </li>
+            {% endif %}
+            
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                <li class="page-item active">
+                    <span class="page-link">{{ num }}</span>
+                </li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ num }}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_date %}&date={{ selected_date }}{% endif %}{% if selected_sort %}&sort={{ selected_sort }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}">{{ num }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+            
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_date %}&date={{ selected_date }}{% endif %}{% if selected_sort %}&sort={{ selected_sort }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}">
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_date %}&date={{ selected_date }}{% endif %}{% if selected_sort %}&sort={{ selected_sort }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}">
+                    <i class="bi bi-chevron-double-right"></i>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+    {% else %}
+    <div class="no-events">
+        <div class="text-center">
+            <i class="bi bi-calendar-x fs-1 text-muted mb-3"></i>
+            <h4>No events found</h4>
+            <p class="text-muted">Try adjusting your search filters or create a new event</p>
+            <a href="{% url 'create_event' %}" class="btn btn-custom-primary mt-3">
+                <i class="bi bi-plus-circle me-2"></i> Create Event
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Category filter chips
+    const categorySelect = document.getElementById('category');
+    const dateSelect = document.getElementById('date');
+    const sortSelect = document.getElementById('sort');
+    
+    // You can add JavaScript interactions here if needed
+    // For example, dynamic filtering without page reload using AJAX
+    
+    // Example: Add active class to filter buttons
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block title %}Customize Royal Wedding | Festiva{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="card shadow">
+                    <div class="card-header bg-danger text-white">
+                        <h2 class="h4 mb-0">Customize Royal Wedding Package</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <h4 class="alert-heading">Base Package: Royal Wedding</h4>
+                            <p>Base Price: <strong>$<span id="base_price">5000</span></strong></p>
+                        </div>
+
+                        <form method="post" class="needs-validation" novalidate>
+                            {% csrf_token %}
+                            <input type="hidden" name="package_type" value="royal_wedding">
+
+                            <!-- Event Details -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Event Details</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="event_date" class="form-label">Event Date</label>
+                                        <input type="date" class="form-control" id="event_date" name="event_date" required>
+                                        <div class="invalid-feedback">Please select a date.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="guest_count" class="form-label">Number of Guests</label>
+                                        <input type="number" class="form-control" id="guest_count" name="guest_count" min="1" value="300" required>
+                                        <div class="invalid-feedback">Please enter number of guests.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Add-ons -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Optional Add-Ons</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="1500" id="helicopter" name="addons">
+                                    <label class="form-check-label" for="helicopter">
+                                        Helicopter Entry (+$1,500)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="2000" id="celebrity" name="addons">
+                                    <label class="form-check-label" for="celebrity">
+                                        Celebrity Appearance (+$2,000)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="700" id="floral" name="addons">
+                                    <label class="form-check-label" for="floral">
+                                        Premium Floral Upgrade (+$700)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="500" id="drone" name="addons">
+                                    <label class="form-check-label" for="drone">
+                                        Drone Videography (+$500)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Catering Options -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Catering Upgrade</h4>
+                                <select class="form-select" id="catering_option" name="catering_option" required>
+                                    <option value="0" selected>Premium 5-Course Meal (Included)</option>
+                                    <option value="10">Luxury Chef Experience (+$10 per person)</option>
+                                    <option value="20">Gourmet World Cuisine (+$20 per person)</option>
+                                </select>
+                            </div>
+
+                            <!-- Special Requests -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Special Requests</h4>
+                                <textarea class="form-control" name="special_requests" rows="4" placeholder="Any other ideas, requests, or notes for our team..."></textarea>
+                            </div>
+
+                            <!-- Final Quote -->
+                            <div class="mb-4 text-end">
+                                <h4>Total Estimated Cost: <strong>$<span id="total_cost">5000</span></strong></h4>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="submit" class="btn btn-danger btn-lg px-4">
+                                    <i class="bi bi-calculator me-2"></i> Submit Request
+                                </button>
+                                <button type="reset" class="btn btn-outline-secondary btn-lg px-4">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Recalculate price when options change
+function calculateTotal() {
+    const basePrice = 5000;
+    let total = basePrice;
+
+    // Add-on costs
+    document.querySelectorAll('.addon:checked').forEach(addon => {
+        total += parseFloat(addon.value);
+    });
+
+    // Catering upgrades
+    const guestCount = parseInt(document.getElementById('guest_count').value || 0);
+    const cateringCost = parseFloat(document.getElementById('catering_option').value);
+    total += cateringCost * guestCount;
+
+    document.getElementById('total_cost').innerText = total.toFixed(2);
+}
+
+document.querySelectorAll('.addon, #guest_count, #catering_option').forEach(input => {
+    input.addEventListener('change', calculateTotal);
+});
+
+// Initial total on load
+calculateTotal();
+</script>
+{% endblock %}

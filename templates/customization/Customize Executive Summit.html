@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %}Customize Executive Summit | Festiva{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="card shadow">
+                    <div class="card-header bg-dark text-white">
+                        <h2 class="h4 mb-0">Customize Executive Summit Package</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <h4 class="alert-heading">Base Package: Executive Summit</h4>
+                            <p>Base Price: <strong>$<span id="base_price">3000</span></strong></p>
+                        </div>
+
+                        <form method="post" class="needs-validation" novalidate>
+                            {% csrf_token %}
+                            <input type="hidden" name="package_type" value="executive_summit">
+
+                            <!-- Event Details -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Event Details</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="event_date" class="form-label">Event Date</label>
+                                        <input type="date" class="form-control" id="event_date" name="event_date" required>
+                                        <div class="invalid-feedback">Please select a date.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="guest_count" class="form-label">Number of Attendees</label>
+                                        <input type="number" class="form-control" id="guest_count" name="guest_count" min="1" value="200" required>
+                                        <div class="invalid-feedback">Please enter number of attendees.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Add-ons -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Optional Add-Ons</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="1000" id="keynote_speaker" name="addons">
+                                    <label class="form-check-label" for="keynote_speaker">
+                                        Industry Keynote Speaker (+$1,000)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="750" id="translation" name="addons">
+                                    <label class="form-check-label" for="translation">
+                                        Live Translation Service (+$750)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="600" id="vip_lounge" name="addons">
+                                    <label class="form-check-label" for="vip_lounge">
+                                        VIP Lounge Setup (+$600)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Catering Options -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Catering Upgrade</h4>
+                                <select class="form-select" id="catering_option" name="catering_option" required>
+                                    <option value="0" selected>Gourmet Catering (Included)</option>
+                                    <option value="12">Executive Lunch Menu (+$12 per person)</option>
+                                    <option value="18">Gala Dinner Experience (+$18 per person)</option>
+                                </select>
+                            </div>
+
+                            <!-- Special Requests -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Special Requests</h4>
+                                <textarea class="form-control" name="special_requests" rows="4" placeholder="Any special logistics, branding, or AV requests..."></textarea>
+                            </div>
+
+                            <!-- Final Quote -->
+                            <div class="mb-4 text-end">
+                                <h4>Total Estimated Cost: <strong>$<span id="total_cost">3000</span></strong></h4>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="submit" class="btn btn-dark btn-lg px-4">
+                                    <i class="bi bi-calculator me-2"></i> Submit Request
+                                </button>
+                                <button type="reset" class="btn btn-outline-secondary btn-lg px-4">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function calculateTotal() {
+    const basePrice = 3000;
+    let total = basePrice;
+
+    document.querySelectorAll('.addon:checked').forEach(addon => {
+        total += parseFloat(addon.value);
+    });
+
+    const guestCount = parseInt(document.getElementById('guest_count').value || 0);
+    const cateringCost = parseFloat(document.getElementById('catering_option').value);
+    total += cateringCost * guestCount;
+
+    document.getElementById('total_cost').innerText = total.toFixed(2);
+}
+
+document.querySelectorAll('.addon, #guest_count, #catering_option').forEach(input => {
+    input.addEventListener('change', calculateTotal);
+});
+
+calculateTotal();
+</script>
+{% endblock %}

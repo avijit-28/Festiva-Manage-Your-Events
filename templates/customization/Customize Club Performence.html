@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block title %}Customize Club Performance | Festiva{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white">
+                        <h2 class="h4 mb-0">Customize Club Performance Package</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <h4 class="alert-heading">Base Package: Club Performance</h4>
+                            <p>Base Price: <strong>$<span id="base_price">3000</span></strong></p>
+                        </div>
+
+                        <form method="post" class="needs-validation" novalidate>
+                            {% csrf_token %}
+                            <input type="hidden" name="package_type" value="club_performance">
+
+                            <!-- Event Details -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Event Details</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="event_date" class="form-label">Event Date</label>
+                                        <input type="date" class="form-control" id="event_date" name="event_date" required>
+                                        <div class="invalid-feedback">Please select a date.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="guest_count" class="form-label">Number of Attendees</label>
+                                        <input type="number" class="form-control" id="guest_count" name="guest_count" min="1" value="300" required>
+                                        <div class="invalid-feedback">Please enter number of attendees.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Add-ons -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Optional Add-Ons</h4>
+
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="500" id="security" name="addons">
+                                    <label class="form-check-label" for="security">Security Services (+$500)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="800" id="video_recording" name="addons">
+                                    <label class="form-check-label" for="video_recording">Video Recording (+$800)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="600" id="event_manager" name="addons">
+                                    <label class="form-check-label" for="event_manager">Dedicated Event Manager (+$600)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="400" id="lighting_effects" name="addons">
+                                    <label class="form-check-label" for="lighting_effects">Dynamic Lighting Effects (+$400)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="300" id="smoke_machine" name="addons">
+                                    <label class="form-check-label" for="smoke_machine">Smoke Machine (+$300)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="1200" id="led_wall" name="addons">
+                                    <label class="form-check-label" for="led_wall">LED Video Wall (+$1200)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="350" id="stage_props" name="addons">
+                                    <label class="form-check-label" for="stage_props">Stage Props & Decorations (+$350)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="450" id="green_room" name="addons">
+                                    <label class="form-check-label" for="green_room">Artist Green Room Setup (+$450)</label>
+                                </div>
+                            </div>
+
+                            <!-- Sound Upgrade -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Sound System Upgrade</h4>
+                                <select class="form-select" id="sound_option" name="sound_option" required>
+                                    <option value="0" selected>Standard Sound System (Included)</option>
+                                    <option value="10">Enhanced Bass Package (+$10 per person)</option>
+                                    <option value="15">Club Pro Audio Package (+$15 per person)</option>
+                                </select>
+                            </div>
+
+                            <!-- Special Requests -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Special Requests</h4>
+                                <textarea class="form-control" name="special_requests" rows="4" placeholder="Any lighting, artist preferences, or other custom needs..."></textarea>
+                            </div>
+
+                            <!-- Final Quote -->
+                            <div class="mb-4 text-end">
+                                <h4>Total Estimated Cost: <strong>$<span id="total_cost">3000</span></strong></h4>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="submit" class="btn btn-success btn-lg px-4">Submit Request</button>
+                                <button type="reset" class="btn btn-outline-secondary btn-lg px-4">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function calculateTotal() {
+    const basePrice = 3000;
+    let total = basePrice;
+
+    document.querySelectorAll('.addon:checked').forEach(addon => {
+        total += parseFloat(addon.value);
+    });
+
+    const guestCount = parseInt(document.getElementById('guest_count').value || 0);
+    const soundCost = parseFloat(document.getElementById('sound_option').value);
+    total += soundCost * guestCount;
+
+    document.getElementById('total_cost').innerText = total.toFixed(2);
+}
+
+document.querySelectorAll('.addon, #guest_count, #sound_option').forEach(input => {
+    input.addEventListener('change', calculateTotal);
+});
+
+calculateTotal();
+</script>
+{% endblock %}

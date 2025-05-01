@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Ticket | {{ event.title }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card card-custom">
+                <div class="card-header-custom">
+                    <h2 class="mb-0">Book Ticket for {{ event.title }}</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <img src="{{ event.image.url }}" class="img-fluid rounded" alt="{{ event.title }}">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Event Details</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-calendar-event text-primary-custom me-2"></i> {{ event.start_date|date:"F j, Y" }}</li>
+                                <li><i class="bi bi-clock text-primary-custom me-2"></i> {{ event.start_date|time }}</li>
+                                <li><i class="bi bi-geo-alt text-primary-custom me-2"></i> {{ event.location }}</li>
+                                <li><i class="bi bi-cash-coin text-primary-custom me-2"></i> ${{ event.price }} per ticket</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Number of Tickets</label>
+                            <select class="form-select" id="quantity" name="quantity">
+                                {% for i in range(1, 6) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4 p-3 bg-light rounded">
+                            <h5>Payment Summary</h5>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Ticket Price:</span>
+                                <span>${{ event.price }}</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Quantity:</span>
+                                <span id="quantity-display">1</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between fw-bold">
+                                <span>Total:</span>
+                                <span id="total-price">${{ event.price }}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-custom-primary">
+                                <i class="bi bi-credit-card me-2"></i> Confirm Booking
+                            </button>
+                            <a href="{% url 'event_detail' event.id %}" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-circle me-2"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const quantitySelect = document.getElementById('quantity');
+    const quantityDisplay = document.getElementById('quantity-display');
+    const totalPrice = document.getElementById('total-price');
+    const ticketPrice = parseFloat(document.getElementById('quantity').dataset.price);
+
+    quantitySelect.addEventListener('change', function() {
+        const quantity = parseInt(this.value);
+        quantityDisplay.textContent = quantity;
+        totalPrice.textContent = '$' + (ticketPrice * quantity).toFixed(2);
+    });
+});
+</script>
+{% endblock %}

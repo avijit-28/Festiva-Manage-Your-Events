@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Application: {{ application.position }}</title>
+</head>
+<body>
+    <h2>New Job Application Received</h2>
+    
+    <h3>Candidate Information:</h3>
+    <ul>
+        <li><strong>Position:</strong> {{ application.position }}</li>
+        <li><strong>Name:</strong> {{ application.first_name }} {{ application.last_name }}</li>
+        <li><strong>Email:</strong> {{ application.email }}</li>
+        <li><strong>Phone:</strong> {{ application.phone }}</li>
+        <li><strong>Employment Type:</strong> {{ application.get_employment_type_display }}</li>
+        <li><strong>Available Start Date:</strong> {{ application.start_date }}</li>
+        <li><strong>Portfolio:</strong> {{ application.portfolio|default:"Not provided" }}</li>
+    </ul>
+
+    <h3>Cover Letter:</h3>
+    <p>{{ application.cover_letter }}</p>
+
+    <p>
+        <a href="{{ admin_url }}">View in Admin</a> | 
+        <a href="mailto:{{ application.email }}">Email Candidate</a>
+    </p>
+</body>
+</html>

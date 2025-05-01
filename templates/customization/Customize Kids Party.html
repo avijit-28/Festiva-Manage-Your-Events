@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %}Customize Kids Party | Festiva{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white">
+                        <h2 class="h4 mb-0">Customize Kids Party Package</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <h4 class="alert-heading">Base Package: Kids Party</h4>
+                            <p>Base Price: <strong>$<span id="base_price">300</span></strong></p>
+                        </div>
+
+                        <form method="post" class="needs-validation" novalidate>
+                            {% csrf_token %}
+                            <input type="hidden" name="package_type" value="kids_party">
+
+                            <!-- Event Details -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Event Details</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="event_date" class="form-label">Event Date</label>
+                                        <input type="date" class="form-control" id="event_date" name="event_date" required>
+                                        <div class="invalid-feedback">Please select a date.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="guest_count" class="form-label">Number of Kids</label>
+                                        <input type="number" class="form-control" id="guest_count" name="guest_count" min="1" value="25" required>
+                                        <div class="invalid-feedback">Please enter number of kids.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Add-ons -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Optional Add-Ons</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="150" id="clown" name="addons">
+                                    <label class="form-check-label" for="clown">
+                                        Clown Performance (+$150)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="180" id="bouncy" name="addons">
+                                    <label class="form-check-label" for="bouncy">
+                                        Bouncy Castle (+$180)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input addon" type="checkbox" value="120" id="magic" name="addons">
+                                    <label class="form-check-label" for="magic">
+                                        Magic Show (+$120)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Catering Options -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Catering Upgrade</h4>
+                                <select class="form-select" id="catering_option" name="catering_option" required>
+                                    <option value="0" selected>Snacks & Drinks (Included)</option>
+                                    <option value="5">Fun Food Platters (+$5 per child)</option>
+                                    <option value="8">Kids Gourmet Buffet (+$8 per child)</option>
+                                </select>
+                            </div>
+
+                            <!-- Special Requests -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">Special Requests</h4>
+                                <textarea class="form-control" name="special_requests" rows="4" placeholder="Games, themes, decorations or other details..."></textarea>
+                            </div>
+
+                            <!-- Final Quote -->
+                            <div class="mb-4 text-end">
+                                <h4>Total Estimated Cost: <strong>$<span id="total_cost">300</span></strong></h4>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="submit" class="btn btn-success btn-lg px-4">
+                                    <i class="bi bi-calculator me-2"></i> Submit Request
+                                </button>
+                                <button type="reset" class="btn btn-outline-secondary btn-lg px-4">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function calculateTotal() {
+    const basePrice = 300;
+    let total = basePrice;
+
+    document.querySelectorAll('.addon:checked').forEach(addon => {
+        total += parseFloat(addon.value);
+    });
+
+    const guestCount = parseInt(document.getElementById('guest_count').value || 0);
+    const cateringCost = parseFloat(document.getElementById('catering_option').value);
+    total += cateringCost * guestCount;
+
+    document.getElementById('total_cost').innerText = total.toFixed(2);
+}
+
+document.querySelectorAll('.addon, #guest_count, #catering_option').forEach(input => {
+    input.addEventListener('change', calculateTotal);
+});
+
+calculateTotal();
+</script>
+{% endblock %}

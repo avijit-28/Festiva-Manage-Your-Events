@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}Privacy Policy | Festiva{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="text-center mb-4">Privacy Policy</h1>
+            <p class="text-muted text-center mb-5">Last updated: {% now "F j, Y" %}</p>
+            
+            <div class="card card-custom mb-4">
+                <div class="card-header-custom">
+                    <h2><i class="bi bi-shield-lock me-2"></i>Your Privacy Matters</h2>
+                </div>
+                <div class="card-body">
+                    <p>At Festiva, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our event management platform.</p>
+                </div>
+            </div>
+
+            <div class="card card-custom mb-4">
+                <div class="card-header-custom">
+                    <h3><i class="bi bi-collection me-2"></i>Information We Collect</h3>
+                </div>
+                <div class="card-body">
+                    <p>We may collect personal information that you voluntarily provide to us when you:</p>
+                    <ul>
+                        <li>Register for an account</li>
+                        <li>Create or purchase tickets for an event</li>
+                        <li>Contact our support team</li>
+                        <li>Participate in surveys or promotions</li>
+                    </ul>
+                    <p>The types of information we may collect include:</p>
+                    <ul>
+                        <li>Name and contact details (email, phone number, address)</li>
+                        <li>Payment information (processed securely by our payment partners)</li>
+                        <li>Event preferences and attendance history</li>
+                        <li>Device and usage information</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-custom mb-4">
+                <div class="card-header-custom">
+                    <h3><i class="bi bi-gear me-2"></i>How We Use Your Information</h3>
+                </div>
+                <div class="card-body">
+                    <p>We use the information we collect to:</p>
+                    <ul>
+                        <li>Provide and maintain our services</li>
+                        <li>Process transactions and send confirmations</li>
+                        <li>Communicate with you about events and updates</li>
+                        <li>Improve our platform and user experience</li>
+                        <li>Ensure security and prevent fraud</li>
+                        <li>Comply with legal obligations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-custom mb-4">
+                <div class="card-header-custom">
+                    <h3><i class="bi bi-share me-2"></i>Information Sharing</h3>
+                </div>
+                <div class="card-body">
+                    <p>We do not sell your personal information. We may share information with:</p>
+                    <ul>
+                        <li>Event organizers for events you attend (basic attendee information only)</li>
+                        <li>Service providers who assist with our operations</li>
+                        <li>Legal authorities when required by law</li>
+                    </ul>
+                    <p>We require all third parties to respect your privacy and protect your data.</p>
+                </div>
+            </div>
+
+            <div class="card card-custom mb-4">
+                <div class="card-header-custom">
+                    <h3><i class="bi bi-lock me-2"></i>Data Security</h3>
+                </div>
+                <div class="card-body">
+                    <p>We implement appropriate technical and organizational measures to protect your personal data, including:</p>
+                    <ul>
+                        <li>Encryption of sensitive data</li>
+                        <li>Regular security assessments</li>
+                        <li>Access controls and authentication</li>
+                    </ul>
+                    <p>However, no internet transmission is completely secure, and we cannot guarantee absolute security.</p>
+                </div>
+            </div>
+
+            <div class="card card-custom mb-4">
+                <div class="card-header-custom">
+                    <h3><i class="bi bi-person-circle me-2"></i>Your Rights</h3>
+                </div>
+                <div class="card-body">
+                    <p>Depending on your location, you may have rights including:</p>
+                    <ul>
+                        <li>Access to your personal information</li>
+                        <li>Correction of inaccurate data</li>
+                        <li>Deletion of your data</li>
+                        <li>Restriction of processing</li>
+                        <li>Data portability</li>
+                        <li>Objection to processing</li>
+                    </ul>
+                    <p>To exercise these rights, please contact us at <a href="mailto:privacy@festiva.com">privacy@festiva.com</a>.</p>
+                </div>
+            </div>
+
+            <div class="card card-custom">
+                <div class="card-header-custom">
+                    <h3><i class="bi bi-question-circle me-2"></i>Contact Us</h3>
+                </div>
+                <div class="card-body">
+                    <p>If you have questions about this Privacy Policy, please contact our Data Protection Officer at:</p>
+                    <address>
+                        <strong>Festiva Privacy Team</strong><br>
+                        123 Event Street<br>
+                        San Francisco, CA 94107<br>
+                        <a href="mailto:privacy@festiva.com">privacy@festiva.com</a>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

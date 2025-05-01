@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}Apply Now | Festiva{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">
+                        <i class="bi bi-person-plus me-2"></i>
+                        Application for: {{ request.GET.position|default:"General Application" }}
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="position" value="{{ request.GET.position }}">
+                        
+                        <div class="mb-4">
+                            <h4 class="border-bottom pb-2">Personal Information</h4>
+                            <div class="row g-3 mt-3">
+                                <div class="col-md-6">
+                                    <label for="first_name" class="form-label">First Name*</label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="last_name" class="form-label">Last Name*</label>
+                                    <input type="text" class="form-control" id="last_name" name="last_name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email*</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone*</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="border-bottom pb-2">Professional Information</h4>
+                            <div class="row g-3 mt-3">
+                                <div class="col-12">
+                                    <label for="resume" class="form-label">Resume/CV* (PDF only)</label>
+                                    <input type="file" class="form-control" id="resume" name="resume" accept=".pdf" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="portfolio" class="form-label">Portfolio/Website (if applicable)</label>
+                                    <input type="url" class="form-control" id="portfolio" name="portfolio">
+                                </div>
+                                <div class="col-12">
+                                    <label for="cover_letter" class="form-label">Cover Letter*</label>
+                                    <textarea class="form-control" id="cover_letter" name="cover_letter" rows="5" required></textarea>
+                                    <div class="form-text">Tell us why you'd be great for this role</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="border-bottom pb-2">Availability</h4>
+                            <div class="row g-3 mt-3">
+                                <div class="col-md-6">
+                                    <label for="start_date" class="form-label">Available Start Date*</label>
+                                    <input type="date" class="form-control" id="start_date" name="start_date" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Employment Type*</label>
+                                    <select class="form-select" name="employment_type" required>
+                                        <option value="" disabled selected>Select...</option>
+                                        <option value="full_time">Full-time</option>
+                                        <option value="part_time">Part-time</option>
+                                        <option value="contract">Contract/Freelance</option>
+                                        <option value="internship">Internship</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="agree_terms" required>
+                            <label class="form-check-label" for="agree_terms">
+                                I agree to the <a href="{% url 'privacy' %}" target="_blank">privacy policy</a> and consent to my data being processed for this application.
+                            </label>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="bi bi-send me-2"></i> Submit Application
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

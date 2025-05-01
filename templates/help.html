@@ -1,0 +1,450 @@
+{% extends 'base.html' %}
+
+{% block title %}Help Center | Festiva{% endblock %}
+
+{% block content %}
+<div class="help-center-page">
+    <!-- Hero Section -->
+    <section class="help-hero py-5 text-center">
+        <div class="container py-4">
+            <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">Festiva Help Center</h1>
+            <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">Find answers to your questions or contact our support team</p>
+            
+            <!-- Search Bar -->
+            <div class="row justify-content-center animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="col-lg-8">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-lg" placeholder="Search help articles..." aria-label="Search help articles">
+                        <button class="btn btn-primary" type="button">
+                            <i class="bi bi-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Help Sections -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Getting Started -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="fadeInUp">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="bi bi-rocket me-2"></i>Getting Started</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-primary"></i>
+                                        Creating Your First Event
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-primary"></i>
+                                        Account Setup Guide
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-primary"></i>
+                                        Navigating the Dashboard
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-primary"></i>
+                                        Understanding User Roles
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="#" class="btn btn-outline-primary w-100">View All Guides</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event Management -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="fadeInUp" data-delay="100">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="bi bi-calendar-event me-2"></i>Event Management</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-success"></i>
+                                        Selling Tickets Online
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-success"></i>
+                                        Managing Attendees
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-success"></i>
+                                        Customizing Event Pages
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-success"></i>
+                                        Using Promo Codes
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="#" class="btn btn-outline-success w-100">View All Articles</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Troubleshooting -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="fadeInUp" data-delay="200">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="mb-0"><i class="bi bi-tools me-2"></i>Troubleshooting</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-warning"></i>
+                                        Common Login Issues
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-warning"></i>
+                                        Payment Problems
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-warning"></i>
+                                        Ticket Delivery Issues
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <a href="#" class="text-decoration-none d-flex align-items-center">
+                                        <i class="bi bi-file-earmark-text me-2 text-warning"></i>
+                                        Browser Compatibility
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="#" class="btn btn-outline-warning w-100">View Solutions</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Popular Articles -->
+                <div class="col-12 mt-4">
+                    <h2 class="fw-bold mb-4 animate__animated" data-animation="fadeIn">Popular Help Articles</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6 animate__animated" data-animation="fadeInRight">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <i class="bi bi-question-circle-fill fs-1 text-primary"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h5 class="fw-bold">How to Issue Refunds</h5>
+                                            <p>Step-by-step guide to processing refunds for your event tickets.</p>
+                                            <a href="#" class="btn btn-sm btn-outline-primary">Read Article</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 animate__animated" data-animation="fadeInRight" data-delay="100">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <i class="bi bi-question-circle-fill fs-1 text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h5 class="fw-bold">Integrating With Zoom</h5>
+                                            <p>Connect your virtual events with Zoom for seamless streaming.</p>
+                                            <a href="#" class="btn btn-sm btn-outline-success">Read Article</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 animate__animated" data-animation="fadeInRight" data-delay="200">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <i class="bi bi-question-circle-fill fs-1 text-info"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h5 class="fw-bold">Custom Ticket Types</h5>
+                                            <p>Create multiple ticket types with different pricing and benefits.</p>
+                                            <a href="#" class="btn btn-sm btn-outline-info">Read Article</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 animate__animated" data-animation="fadeInRight" data-delay="300">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <i class="bi bi-question-circle-fill fs-1 text-purple"></i>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h5 class="fw-bold">Analytics Dashboard</h5>
+                                            <p>Understand your event performance with our analytics tools.</p>
+                                            <a href="#" class="btn btn-sm btn-outline-purple">Read Article</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold animate__animated" data-animation="fadeIn">Frequently Asked Questions</h2>
+                <p class="text-muted animate__animated" data-animation="fadeIn" data-delay="100">Quick answers to common questions</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item border-0 shadow-sm mb-3 animate__animated" data-animation="fadeInUp">
+                            <h3 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="false" aria-controls="faqOne">
+                                    How do I create an event?
+                                </button>
+                            </h3>
+                            <div id="faqOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>To create an event, log in to your Festiva account and click on "Create Event" in your dashboard. Follow the step-by-step wizard to add event details, tickets, and settings. You can publish your event immediately or save it as a draft to finish later.</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">View Detailed Guide</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item border-0 shadow-sm mb-3 animate__animated" data-animation="fadeInUp" data-delay="100">
+                            <h3 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                                    What payment methods do you accept?
+                                </button>
+                            </h3>
+                            <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Festiva accepts all major credit cards (Visa, Mastercard, American Express, Discover) as well as PayPal. For event organizers, we support payouts via direct bank transfer or PayPal.</p>
+                                    <p><strong>Note:</strong> Some payment methods may not be available in all countries.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item border-0 shadow-sm mb-3 animate__animated" data-animation="fadeInUp" data-delay="200">
+                            <h3 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                                    Can I transfer my ticket to someone else?
+                                </button>
+                            </h3>
+                            <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Yes, most tickets can be transferred to another person. To transfer a ticket:</p>
+                                    <ol>
+                                        <li>Log in to your Festiva account</li>
+                                        <li>Go to "My Tickets"</li>
+                                        <li>Select the ticket you want to transfer</li>
+                                        <li>Click "Transfer Ticket" and enter the recipient's details</li>
+                                    </ol>
+                                    <p>Some event organizers may disable this feature for their events.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 4 -->
+                        <div class="accordion-item border-0 shadow-sm mb-3 animate__animated" data-animation="fadeInUp" data-delay="300">
+                            <h3 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">
+                                    How do I contact event organizers?
+                                </button>
+                            </h3>
+                            <div id="faqFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>You can contact event organizers directly through the event page:</p>
+                                    <ol>
+                                        <li>Navigate to the event page</li>
+                                        <li>Scroll to the "Organizer" section</li>
+                                        <li>Click "Contact Organizer"</li>
+                                        <li>Fill out the contact form with your message</li>
+                                    </ol>
+                                    <p>Organizers typically respond within 24-48 hours.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4 animate__animated" data-animation="fadeIn">
+                        <a href="{% url 'faq' %}" class="btn btn-primary">View All FAQs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Support -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center animate__animated" data-animation="fadeIn">
+                    <h2 class="fw-bold mb-3">Still Need Help?</h2>
+                    <p class="lead mb-4">Our support team is ready to assist you</p>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-4 animate__animated" data-animation="fadeInUp">
+                            <div class="p-4 border rounded h-100">
+                                <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle mx-auto mb-3">
+                                    <i class="bi bi-chat-left-text fs-3"></i>
+                                </div>
+                                <h5>Live Chat</h5>
+                                <p class="text-muted">Available 24/7 for instant support</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Start Chat</a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 animate__animated" data-animation="fadeInUp" data-delay="100">
+                            <div class="p-4 border rounded h-100">
+                                <div class="icon-box bg-success bg-opacity-10 text-success rounded-circle mx-auto mb-3">
+                                    <i class="bi bi-envelope fs-3"></i>
+                                </div>
+                                <h5>Email Us</h5>
+                                <p class="text-muted">Typically respond within 2 hours</p>
+                                <a href="mailto:support@festiva.com" class="btn btn-sm btn-outline-success">Send Email</a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 animate__animated" data-animation="fadeInUp" data-delay="200">
+                            <div class="p-4 border rounded h-100">
+                                <div class="icon-box bg-warning bg-opacity-10 text-warning rounded-circle mx-auto mb-3">
+                                    <i class="bi bi-telephone fs-3"></i>
+                                </div>
+                                <h5>Call Us</h5>
+                                <p class="text-muted">Mon-Fri, 9am-5pm EST</p>
+                                <a href="tel:+18005551234" class="btn btn-sm btn-outline-warning">+1 (800) 555-1234</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .help-hero {
+        background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+        color: white;
+    }
+    
+    .icon-box {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .accordion-button:not(.collapsed) {
+        background-color: rgba(13, 110, 253, 0.1);
+        color: #0d6efd;
+    }
+    
+    .accordion-button:focus {
+        box-shadow: none;
+        border-color: rgba(0,0,0,.125);
+    }
+    
+    .bg-purple {
+        background-color: #6f42c1;
+    }
+    
+    .btn-outline-purple {
+        color: #6f42c1;
+        border-color: #6f42c1;
+    }
+    
+    .btn-outline-purple:hover {
+        color: white;
+        background-color: #6f42c1;
+    }
+    
+    /* Animation Styles */
+    [data-animation] {
+        opacity: 0;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Scroll animations
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('[data-animation]');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                const animation = element.getAttribute('data-animation');
+                const delay = element.getAttribute('data-delay') || 0;
+                
+                element.style.animationDelay = `${delay}ms`;
+                element.classList.add('animate__animated', `animate__${animation}`);
+                element.style.opacity = 1;
+            }
+        });
+    };
+    
+    // Run on load and scroll
+    animateOnScroll();
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Initialize accordions
+    const faqAccordion = new bootstrap.Collapse(document.getElementById('faqOne'), {
+        toggle: false
+    });
+});
+</script>
+{% endblock %}

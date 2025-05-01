@@ -1,0 +1,674 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Team | Festiva{% endblock %}
+
+{% block content %}
+<div class="team-page">
+    <!-- Hero Section -->
+    <section class="team-hero py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">Meet the Festiva Team</h1>
+            <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">The passionate people behind your unforgettable event experiences</p>
+            <div class="d-flex justify-content-center gap-3 animate__animated animate__fadeInUp animate__delay-1s">
+                <a href="#leadership" class="btn btn-outline-primary">Leadership</a>
+                <a href="#tech" class="btn btn-outline-primary">Tech Team</a>
+                <a href="#operations" class="btn btn-outline-primary">Operations</a>
+                <a href="#join" class="btn btn-primary">Join Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section id="leadership" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Leadership Team</h2>
+                <p class="text-muted">Guiding our vision and strategy</p>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <!-- Team Member 1 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="team-card card border-0 shadow-sm h-100 animate__animated" data-animation="fadeInUp">
+                        <div class="team-img-container">
+                            <img src="https://via.placeholder.com/400x400" class="card-img-top" alt="CEO">
+                            <div class="team-social-overlay">
+                                <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold mb-1">Alex Johnson</h5>
+                            <p class="text-primary mb-2">CEO & Founder</p>
+                            <p class="card-text small text-muted">Event industry veteran with 15+ years experience creating memorable experiences</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="team-card card border-0 shadow-sm h-100 animate__animated" data-animation="fadeInUp" data-delay="100">
+                        <div class="team-img-container">
+                            <img src="https://via.placeholder.com/400x400" class="card-img-top" alt="CTO">
+                            <div class="team-social-overlay">
+                                <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="text-white"><i class="bi bi-github"></i></a>
+                                <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold mb-1">Samira Patel</h5>
+                            <p class="text-primary mb-2">CTO</p>
+                            <p class="card-text small text-muted">Tech innovator passionate about building scalable event platforms</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="team-card card border-0 shadow-sm h-100 animate__animated" data-animation="fadeInUp" data-delay="200">
+                        <div class="team-img-container">
+                            <img src="https://via.placeholder.com/400x400" class="card-img-top" alt="CMO">
+                            <div class="team-social-overlay">
+                                <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold mb-1">Marcus Chen</h5>
+                            <p class="text-primary mb-2">CMO</p>
+                            <p class="card-text small text-muted">Marketing guru who knows how to make events go viral</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="team-card card border-0 shadow-sm h-100 animate__animated" data-animation="fadeInUp" data-delay="300">
+                        <div class="team-img-container">
+                            <img src="https://via.placeholder.com/400x400" class="card-img-top" alt="COO">
+                            <div class="team-social-overlay">
+                                <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold mb-1">Jamila Abdi</h5>
+                            <p class="text-primary mb-2">COO</p>
+                            <p class="card-text small text-muted">Operations expert who ensures everything runs smoothly</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Team -->
+    <section id="tech" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Technology Team</h2>
+                <p class="text-muted">Building the platform that powers your events</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Dev Team -->
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="fadeInRight">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0"><i class="bi bi-code-slash me-2"></i>Development Team</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                {% for dev in dev_team %}
+                                <div class="col-6 col-md-4">
+                                    <div class="team-member-sm text-center">
+                                        <img src="{{ dev.image }}" alt="{{ dev.name }}" class="rounded-circle mb-2" width="80">
+                                        <h6 class="mb-0">{{ dev.name }}</h6>
+                                        <small class="text-muted">{{ dev.role }}</small>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Design Team -->
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="fadeInLeft">
+                        <div class="card-header bg-success text-white">
+                            <h4 class="mb-0"><i class="bi bi-palette me-2"></i>Design Team</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                {% for designer in design_team %}
+                                <div class="col-6 col-md-4">
+                                    <div class="team-member-sm text-center">
+                                        <img src="{{ designer.image }}" alt="{{ designer.name }}" class="rounded-circle mb-2" width="80">
+                                        <h6 class="mb-0">{{ designer.name }}</h6>
+                                        <small class="text-muted">{{ designer.role }}</small>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Operations Team -->
+    <section id="operations" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Operations Team</h2>
+                <p class="text-muted">Making sure every event runs perfectly</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Team Tabs -->
+                <div class="col-12">
+                    <ul class="nav nav-tabs justify-content-center" id="operationsTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="event-tab" data-bs-toggle="tab" data-bs-target="#event-team" type="button" role="tab">Event Managers</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="support-tab" data-bs-toggle="tab" data-bs-target="#support-team" type="button" role="tab">Support Specialists</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="partner-tab" data-bs-toggle="tab" data-bs-target="#partner-team" type="button" role="tab">Partner Relations</button>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content mt-4" id="operationsTabsContent">
+                        <div class="tab-pane fade show active" id="event-team" role="tabpanel">
+                            <div class="row g-4">
+                                {% for manager in event_managers %}
+                                <div class="col-md-4">
+                                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="zoomIn">
+                                        <div class="card-body text-center">
+                                            <img src="{{ manager.image }}" alt="{{ manager.name }}" class="rounded-circle mb-3" width="120">
+                                            <h5 class="fw-bold">{{ manager.name }}</h5>
+                                            <p class="text-primary">{{ manager.role }}</p>
+                                            <p class="small">{{ manager.bio }}</p>
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <a href="#" class="btn btn-sm btn-outline-primary">View Events</a>
+                                                <a href="#" class="btn btn-sm btn-outline-secondary">Contact</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="support-team" role="tabpanel">
+                            <div class="row g-4">
+                                <!-- Support Specialist 1 -->
+                                <div class="col-md-4">
+                                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="fadeIn">
+                                        <div class="card-body text-center">
+                                            <img src="https://via.placeholder.com/300" alt="Emma Wilson" class="rounded-circle mb-3" width="120">
+                                            <h5 class="fw-bold">Emma Wilson</h5>
+                                            <p class="text-primary">Customer Support Lead</p>
+                                            <p class="small">Ensures every customer has an exceptional experience</p>
+                                            
+                                            <div class="text-start mt-3">
+                                                <h6 class="fw-bold small">Expertise:</h6>
+                                                <div class="d-flex flex-wrap gap-1 mb-2">
+                                                    <span class="badge bg-light text-dark">Technical Support</span>
+                                                    <span class="badge bg-light text-dark">Account Management</span>
+                                                    <span class="badge bg-light text-dark">Training</span>
+                                                </div>
+                                                
+                                                <h6 class="fw-bold small">Languages:</h6>
+                                                <div class="d-flex flex-wrap gap-1">
+                                                    <span class="badge bg-info">English</span>
+                                                    <span class="badge bg-info">Spanish</span>
+                                                    <span class="badge bg-info">French</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mt-3">
+                                                <a href="#" class="btn btn-sm btn-outline-primary">Contact</a>
+                                                <a href="#" class="btn btn-sm btn-outline-secondary">Schedule Support</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Support Specialist 2 -->
+                                <div class="col-md-4">
+                                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="fadeIn" data-delay="100">
+                                        <div class="card-body text-center">
+                                            <img src="https://via.placeholder.com/300" alt="Raj Patel" class="rounded-circle mb-3" width="120">
+                                            <h5 class="fw-bold">Raj Patel</h5>
+                                            <p class="text-primary">Technical Support Specialist</p>
+                                            <p class="small">Solves technical challenges with a smile</p>
+                                            
+                                            <div class="text-start mt-3">
+                                                <h6 class="fw-bold small">Expertise:</h6>
+                                                <div class="d-flex flex-wrap gap-1 mb-2">
+                                                    <span class="badge bg-light text-dark">Platform Troubleshooting</span>
+                                                    <span class="badge bg-light text-dark">API Support</span>
+                                                    <span class="badge bg-light text-dark">Integrations</span>
+                                                </div>
+                                                
+                                                <h6 class="fw-bold small">Languages:</h6>
+                                                <div class="d-flex flex-wrap gap-1">
+                                                    <span class="badge bg-info">English</span>
+                                                    <span class="badge bg-info">Hindi</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mt-3">
+                                                <a href="#" class="btn btn-sm btn-outline-primary">Contact</a>
+                                                <a href="mailto:support@festiva.com" class="btn btn-sm btn-outline-secondary">Email Support</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Support Specialist 3 -->
+                                <div class="col-md-4">
+                                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="fadeIn" data-delay="200">
+                                        <div class="card-body text-center">
+                                            <img src="https://via.placeholder.com/300" alt="Sophie Martin" class="rounded-circle mb-3" width="120">
+                                            <h5 class="fw-bold">Sophie Martin</h5>
+                                            <p class="text-primary">Event Support Coordinator</p>
+                                            <p class="small">Makes sure every event runs smoothly</p>
+                                            
+                                            <div class="text-start mt-3">
+                                                <h6 class="fw-bold small">Expertise:</h6>
+                                                <div class="d-flex flex-wrap gap-1 mb-2">
+                                                    <span class="badge bg-light text-dark">On-site Support</span>
+                                                    <span class="badge bg-light text-dark">Vendor Coordination</span>
+                                                    <span class="badge bg-light text-dark">Logistics</span>
+                                                </div>
+                                                
+                                                <h6 class="fw-bold small">Languages:</h6>
+                                                <div class="d-flex flex-wrap gap-1">
+                                                    <span class="badge bg-info">English</span>
+                                                    <span class="badge bg-info">German</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mt-3">
+                                                <a href="#" class="btn btn-sm btn-outline-primary">Contact</a>
+                                                <a href="#" class="btn btn-sm btn-outline-secondary">Event Support</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Support CTA Card -->
+                            <div class="card mt-4 border-0 shadow-sm animate__animated" data-animation="fadeInUp">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-8">
+                                            <h5 class="fw-bold mb-1">24/7 Support Coverage</h5>
+                                            <p class="mb-0">Our team provides round-the-clock support for all your event needs</p>
+                                        </div>
+                                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                            <a href="{% url 'contact' %}?topic=support" class="btn btn-primary">Get Help Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="partner-team" role="tabpanel">
+                            <div class="row g-4">
+                                <!-- Partner Relations 1 -->
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="zoomIn">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <img src="https://via.placeholder.com/300" alt="Michael Chen" class="rounded-circle me-3" width="80" height="80">
+                                                <div>
+                                                    <h5 class="fw-bold mb-1">Michael Chen</h5>
+                                                    <p class="text-primary mb-1">Director of Partnerships</p>
+                                                    <p class="small text-muted mb-2">North America Region</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <p class="mt-3">Builds strategic relationships with top vendors and venues</p>
+                                            
+                                            <h6 class="fw-bold small mt-3">Specialties:</h6>
+                                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                                <span class="badge bg-primary">Venues</span>
+                                                <span class="badge bg-primary">Catering</span>
+                                                <span class="badge bg-primary">AV Equipment</span>
+                                            </div>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a href="#" class="btn btn-sm btn-outline-primary">View Partners</a>
+                                                <small class="text-muted">Avg. response: 2 hours</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Partner Relations 2 -->
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="zoomIn" data-delay="100">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <img src="https://via.placeholder.com/300" alt="Aisha Johnson" class="rounded-circle me-3" width="80" height="80">
+                                                <div>
+                                                    <h5 class="fw-bold mb-1">Aisha Johnson</h5>
+                                                    <p class="text-primary mb-1">Partner Success Manager</p>
+                                                    <p class="small text-muted mb-2">Europe Region</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <p class="mt-3">Ensures our partners have everything they need to succeed</p>
+                                            
+                                            <h6 class="fw-bold small mt-3">Specialties:</h6>
+                                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                                <span class="badge bg-primary">Entertainment</span>
+                                                <span class="badge bg-primary">Decor</span>
+                                                <span class="badge bg-primary">Staffing</span>
+                                            </div>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a href="#" class="btn btn-sm btn-outline-primary">Partner Portal</a>
+                                                <small class="text-muted">Avg. response: 4 hours</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Partner Relations 3 -->
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card border-0 shadow-sm h-100 animate__animated" data-animation="zoomIn" data-delay="200">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <img src="https://via.placeholder.com/300" alt="Diego Rodriguez" class="rounded-circle me-3" width="80" height="80">
+                                                <div>
+                                                    <h5 class="fw-bold mb-1">Diego Rodriguez</h5>
+                                                    <p class="text-primary mb-1">Vendor Relations Specialist</p>
+                                                    <p class="small text-muted mb-2">Latin America Region</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <p class="mt-3">Connects clients with perfect vendors for their events</p>
+                                            
+                                            <h6 class="fw-bold small mt-3">Specialties:</h6>
+                                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                                <span class="badge bg-primary">Photography</span>
+                                                <span class="badge bg-primary">Transportation</span>
+                                                <span class="badge bg-primary">Security</span>
+                                            </div>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a href="#" class="btn btn-sm btn-outline-primary">Vendor List</a>
+                                                <small class="text-muted">Avg. response: 1 hour</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Partner CTA Card -->
+                            <div class="card mt-4 border-0 shadow-sm bg-primary text-white animate__animated" data-animation="fadeInUp">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-8">
+                                            <h5 class="fw-bold mb-1">Become a Festiva Partner</h5>
+                                            <p class="mb-0">Join our network of trusted event vendors and service providers</p>
+                                        </div>
+                                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                            <a href="{% url 'apply_now' %}?topic=partnership" class="btn btn-light">Apply Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Team CTA -->
+    <section id="join" class="py-5 bg-dark text-white text-center">
+        <div class="container py-4">
+            <h2 class="display-5 fw-bold mb-4">Want to Join Our Team?</h2>
+            <p class="lead mb-4">We're always looking for talented people passionate about events</p>
+            <a href="{% url 'careers' %}" class="btn btn-light btn-lg px-4 me-3">View Open Positions</a>
+            <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Team Stats -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-3">
+                    <div class="counter-box animate__animated" data-animation="fadeInUp">
+                        <h2 class="display-4 fw-bold text-primary" data-count="250">0</h2>
+                        <p class="text-muted">Team Members</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-box animate__animated" data-animation="fadeInUp" data-delay="100">
+                        <h2 class="display-4 fw-bold text-primary" data-count="1200">0</h2>
+                        <p class="text-muted">Events Powered</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-box animate__animated" data-animation="fadeInUp" data-delay="200">
+                        <h2 class="display-4 fw-bold text-primary" data-count="15">0</h2>
+                        <p class="text-muted">Countries</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-box animate__animated" data-animation="fadeInUp" data-delay="300">
+                        <h2 class="display-4 fw-bold text-primary" data-count="98">0</h2>
+                        <p class="text-muted">% Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .team-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 0;
+    }
+    
+    .team-card {
+        transition: transform 0.3s ease;
+    }
+    
+    .team-card:hover {
+        transform: translateY(-10px);
+    }
+    
+    .team-img-container {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .team-social-overlay {
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+        transition: bottom 0.3s ease;
+    }
+    
+    .team-card:hover .team-social-overlay {
+        bottom: 0;
+    }
+    
+    .team-social-overlay a {
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .team-social-overlay a:hover {
+        transform: translateY(-3px);
+    }
+
+    /* Support Team Styles */
+    .support-badge {
+        font-size: 0.75rem;
+        padding: 0.35em 0.65em;
+    }
+    
+    /* Partner Team Styles */
+    .partner-card {
+        transition: all 0.3s ease;
+    }
+    
+    .partner-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    /* Tab Styles */
+    .nav-tabs .nav-link {
+        font-weight: 500;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        color: #6c757d;
+    }
+    
+    .nav-tabs .nav-link.active {
+        color: #0d6efd;
+        background: transparent;
+        border-bottom: 3px solid #0d6efd;
+    }
+    
+    .nav-tabs .nav-link:hover:not(.active) {
+        color: #0d6efd;
+        border-bottom: 3px solid #dee2e6;
+    }
+    
+    /* Animation Styles */
+    [data-animation] {
+        opacity: 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767.98px) {
+        .team-member-sm img {
+            width: 60px;
+        }
+        .nav-tabs .nav-link {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Scroll animations
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('[data-animation]');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                const animation = element.getAttribute('data-animation');
+                const delay = element.getAttribute('data-delay') || 0;
+                
+                element.style.animationDelay = `${delay}ms`;
+                element.classList.add('animate__animated', `animate__${animation}`);
+                element.style.opacity = 1;
+            }
+        });
+    };
+    
+    // Run on load and scroll
+    animateOnScroll();
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Counter animation
+    const counters = document.querySelectorAll('[data-count]');
+    const speed = 200;
+    
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-count');
+        const count = +counter.innerText;
+        const increment = target / speed;
+        
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 1);
+        } else {
+            counter.innerText = target;
+        }
+        
+        function updateCount() {
+            const count = +counter.innerText;
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = target;
+            }
+        }
+    });
+    
+    // Initialize team tabs
+    const teamTabs = new bootstrap.Tab(document.getElementById('event-tab'));
+
+    // Add tab animation activation
+    const tabButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('shown.bs.tab', function (e) {
+            const targetPane = document.querySelector(e.target.getAttribute('data-bs-target'));
+            const animatedElements = targetPane.querySelectorAll('[data-animation]');
+            
+            animatedElements.forEach(el => {
+                const animation = el.getAttribute('data-animation');
+                const delay = el.getAttribute('data-delay') || 0;
+                
+                el.style.animationDelay = `${delay}ms`;
+                el.classList.add('animate__animated', `animate__${animation}`);
+                el.style.opacity = 1;
+            });
+        });
+    });
+
+    // Add hover effects to partner cards
+    document.querySelectorAll('.partner-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.classList.add('shadow-lg');
+        });
+        card.addEventListener('mouseleave', () => {
+            card.classList.remove('shadow-lg');
+        });
+    });
+});
+</script>
+{% endblock %}

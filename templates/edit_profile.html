@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+
+{% block title %}My Profile | Festiva{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card card-custom">
+                <div class="card-header-custom">
+                    <h2 class="text-center mb-0"><i class="bi bi-person-circle me-2"></i>My Profile</h2>
+                </div>
+                <div class="card-body">
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" enctype="multipart/form-data" action="{% url 'edit_profile' %}" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        
+                        <!-- Profile Picture Section -->
+                        <div class="text-center mb-4">
+                            <div class="profile-picture-container mx-auto">
+                                {% if user.profile_picture %}
+                                    <img src="{{ user.profile_picture.url }}" alt="Profile Picture" 
+                                         class="rounded-circle profile-picture" id="profile-picture-preview">
+                                {% else %}
+                                    <div class="profile-picture-placeholder rounded-circle" id="profile-picture-preview">
+                                        <i class="bi bi-person-fill fs-1"></i>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="mt-3">
+                                <input type="file" class="form-control d-none" id="profile_picture" name="profile_picture" accept="image/*">
+                                <label for="profile_picture" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-upload me-1"></i>Change Photo
+                                </label>
+                                {% if user.profile_picture %}
+                                <button type="button" class="btn btn-outline-danger btn-sm ms-2" id="remove-picture">
+                                    <i class="bi bi-trash me-1"></i>Remove
+                                </button>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Basic Information Section -->
+                        <div class="mb-4">
+                            <h5 class="mb-3"><i class="bi bi-info-circle me-2"></i>Basic Information</h5>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="first_name" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" 
+                                           value="{{ user.first_name }}" required>
+                                    <div class="invalid-feedback">
+                                        Please provide your first name.
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="last_name" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="last_name" name="last_name" 
+                                           value="{{ user.last_name }}" required>
+                                    <div class="invalid-feedback">
+                                        Please provide your last name.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information Section -->
+                        <div class="mb-4">
+                            <h5 class="mb-3"><i class="bi bi-envelope me-2"></i>Contact Information</h5>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="email" 
+                                       value="{{ user.email }}" required readonly>
+                                <small class="text-muted">Contact support to change your email</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" 
+                                       value="{{ user.phone|default_if_none:'' }}">
+                            </div>
+                        </div>
+
+                        <!-- Bio Section -->
+                        <div class="mb-4">
+                            <h5 class="mb-3"><i class="bi bi-pencil-square me-2"></i>About Me</h5>
+                            <div class="mb-3">
+                                <label for="bio" class="form-label">Bio</label>
+                                <textarea class="form-control" id="bio" name="bio" rows="3">{{ user.bio|default_if_none:'' }}</textarea>
+                            </div>
+                        </div>
+
+                        <!-- Organizer Specific Fields (Conditional) -->
+                        {% if user.role == 'organizer' %}
+                        <div class="mb-4">
+                            <h5 class="mb-3"><i class="bi bi-building me-2"></i>Organization Details</h5>
+                            <div class="mb-3">
+                                <label for="organization_name" class="form-label">Organization Name</label>
+                                <input type="text" class="form-control" id="organization_name" name="organization_name" 
+                                       value="{{ user.organization_name|default_if_none:'' }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="website" class="form-label">Website</label>
+                                <input type="url" class="form-control" id="website" name="website" 
+                                       value="{{ user.website|default_if_none:'' }}" placeholder="https://">
+                            </div>
+                            <div class="mb-3">
+                                <label for="tax_id" class="form-label">Tax ID</label>
+                                <input type="text" class="form-control" id="tax_id" name="tax_id" 
+                                       value="{{ user.tax_id|default_if_none:'' }}">
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <div class="d-grid">
+                            <button class="btn btn-custom-primary btn-lg" type="submit">
+                                <i class="bi bi-save me-2"></i>Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .profile-picture-container {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        margin-bottom: 20px;
+    }
+    
+    .profile-picture {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 3px solid #6a0dad;
+    }
+    
+    .profile-picture-placeholder {
+        width: 100%;
+        height: 100%;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6a0dad;
+        border: 3px solid #6a0dad;
+    }
+    
+    .card-header-custom {
+        background-color: #6a0dad;
+        color: white;
+        padding: 1.5rem;
+        border-radius: 0.375rem 0.375rem 0 0 !important;
+    }
+    
+    .btn-custom-primary {
+        background-color: #6a0dad;
+        color: white;
+        border: none;
+    }
+    
+    .btn-custom-primary:hover {
+        background-color: #5a0b9d;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Profile picture preview
+    const profilePictureInput = document.getElementById('profile_picture');
+    const profilePicturePreview = document.getElementById('profile-picture-preview');
+    
+    profilePictureInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                if (profilePicturePreview.tagName === 'IMG') {
+                    profilePicturePreview.src = e.target.result;
+                } else {
+                    // Replace placeholder with image
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'rounded-circle profile-picture';
+                    img.id = 'profile-picture-preview';
+                    profilePicturePreview.replaceWith(img);
+                    profilePicturePreview = img;
+                }
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+    
+    // Remove picture button
+    const removePictureBtn = document.getElementById('remove-picture');
+    if (removePictureBtn) {
+        removePictureBtn.addEventListener('click', function() {
+            // Create a hidden input to indicate removal
+            const removeInput = document.createElement('input');
+            removeInput.type = 'hidden';
+            removeInput.name = 'remove_profile_picture';
+            removeInput.value = 'true';
+            document.querySelector('form').appendChild(removeInput);
+            
+            // Show placeholder
+            const placeholder = document.createElement('div');
+            placeholder.className = 'profile-picture-placeholder rounded-circle';
+            placeholder.id = 'profile-picture-preview';
+            placeholder.innerHTML = '<i class="bi bi-person-fill fs-1"></i>';
+            profilePicturePreview.replaceWith(placeholder);
+            profilePicturePreview = placeholder;
+            
+            // Hide remove button
+            this.style.display = 'none';
+        });
+    }
+    
+    // Form validation
+    const form = document.querySelector('.needs-validation');
+    form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+    }, false);
+});
+</script>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Account Approved</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        a { color: #6f42c1; text-decoration: none; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Hello {{ user.first_name }},</p>
+        <p>Your admin account for Festiva has been approved by a super admin.</p>
+        <p>You can now log in and access the admin dashboard:</p>
+        <p><a href="{{ login_url }}">Login to Festiva</a></p>
+        <p>If you didn't request this, please contact us immediately.</p>
+    </div>
+</body>
+</html>

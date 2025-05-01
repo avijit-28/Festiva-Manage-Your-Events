@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Event | {{ event.title }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card card-custom">
+                <div class="card-header-custom">
+                    <h2 class="mb-0">Edit Event</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                {% if event.image %}
+                                <img src="{{ event.image.url }}" class="img-fluid rounded mb-3" alt="Current event image">
+                                {% endif %}
+                                <div class="mb-3">
+                                    <label for="{{ form.image.id_for_label }}" class="form-label">Event Image</label>
+                                    {{ form.image }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="{{ form.title.id_for_label }}" class="form-label">Event Title</label>
+                                    {{ form.title }}
+                                </div>
+                                <div class="mb-3">
+                                    <label for="{{ form.category.id_for_label }}" class="form-label">Category</label>
+                                    {{ form.category }}
+                                </div>
+                                <div class="mb-3">
+                                    <label for="{{ form.event_type.id_for_label }}" class="form-label">Event Type</label>
+                                    {{ form.event_type }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
+                            {{ form.description }}
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="{{ form.start_date.id_for_label }}" class="form-label">Start Date & Time</label>
+                                {{ form.start_date }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="{{ form.end_date.id_for_label }}" class="form-label">End Date & Time</label>
+                                {{ form.end_date }}
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="{{ form.location.id_for_label }}" class="form-label">Location</label>
+                                {{ form.location }}
+                            </div>
+                            <div class="col-md-3">
+                                <label for="{{ form.capacity.id_for_label }}" class="form-label">Capacity</label>
+                                {{ form.capacity }}
+                            </div>
+                            <div class="col-md-3">
+                                <label for="{{ form.price.id_for_label }}" class="form-label">Price ($)</label>
+                                {{ form.price }}
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{% url 'event_detail' event.id %}" class="btn btn-outline-secondary me-md-2">
+                                <i class="bi bi-x-circle me-2"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-custom-primary">
+                                <i class="bi bi-save me-2"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+<!-- Customize Concert Hall Event -->
+{% extends 'base.html' %}
+{% block title %}Customize Concert Hall Event | Festiva{% endblock %}
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="card shadow">
+          <div class="card-header bg-warning text-dark">
+            <h2 class="h4 mb-0">Customize Concert Hall Event</h2>
+          </div>
+          <div class="card-body">
+            <div class="alert alert-info">
+              <h4 class="alert-heading">Base Package: Concert Hall Event</h4>
+              <p>Base Price: <strong>$<span id="base_price">7500</span></strong></p>
+            </div>
+
+            <form method="post" class="needs-validation" novalidate>
+              {% csrf_token %}
+              <input type="hidden" name="package_type" value="concert_hall_event">
+
+              <div class="mb-4">
+                <h4 class="mb-3">Event Details</h4>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="event_date" class="form-label">Event Date</label>
+                    <input type="date" class="form-control" id="event_date" name="event_date" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="guest_count" class="form-label">Estimated Attendees</label>
+                    <input type="number" class="form-control" id="guest_count" name="guest_count" value="1000" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="mb-3">Add-Ons</h4>
+                <div class="form-check">
+                  <input class="form-check-input addon" type="checkbox" value="1000" id="lighting">
+                  <label class="form-check-label" for="lighting">Advanced Lighting Rig (+$1000)</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input addon" type="checkbox" value="850" id="backstage">
+                  <label class="form-check-label" for="backstage">Backstage Hospitality (+$850)</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input addon" type="checkbox" value="900" id="ticketing">
+                  <label class="form-check-label" for="ticketing">Ticketing & Entry Staff (+$900)</label>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="mb-3">Audio System Upgrade</h4>
+                <select class="form-select" id="audio_option" name="audio_option" required>
+                  <option value="0" selected>Standard Sound System (Included)</option>
+                  <option value="1200">Enhanced Acoustics Upgrade (+$1200)</option>
+                  <option value="2500">Concert-Grade Surround System (+$2500)</option>
+                </select>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="mb-3">Special Requests</h4>
+                <textarea class="form-control" name="special_requests" rows="4"></textarea>
+              </div>
+
+              <div class="mb-4 text-end">
+                <h4>Total Estimated Cost: <strong>$<span id="total_cost">7500</span></strong></h4>
+              </div>
+
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-warning btn-lg">Submit</button>
+                <button type="reset" class="btn btn-outline-secondary btn-lg">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  function updateTotal() {
+    let total = 7500;
+    document.querySelectorAll('.addon:checked').forEach(el => total += parseFloat(el.value));
+    const audioUpgrade = parseFloat(document.getElementById('audio_option').value);
+    total += audioUpgrade;
+    document.getElementById('total_cost').innerText = total.toFixed(2);
+  }
+  document.querySelectorAll('.addon, #audio_option').forEach(el => el.addEventListener('change', updateTotal));
+  updateTotal();
+</script>
+{% endblock %}

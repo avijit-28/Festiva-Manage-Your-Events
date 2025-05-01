@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+
+{% block title %}Login | Festiva{% endblock %}
+
+{% block content %}
+<style>
+    /* Login Container Animation */
+    .login-container {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+    }
+    
+    .login-container.animated {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Card Styles */
+    .login-card {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .login-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .card-header-custom {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    /* Social Buttons */
+    .social-login {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .social-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+    
+    .social-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-google {
+        background: white;
+        color: #6a0dad;
+        border: 2px solid #6a0dad;
+    }
+    
+    .btn-google:hover {
+        background: #6a0dad;
+        color: white;
+    }
+    
+    /* Form Styles */
+    .form-floating label {
+        color: #6c757d;
+    }
+    
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.25);
+    }
+    
+    /* Remember Me & Forgot Password */
+    .login-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Divider */
+    .divider {
+        display: flex;
+        align-items: center;
+        margin: 2rem 0;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.6s ease 0.3s;
+    }
+    
+    .divider.animated {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .divider::before,
+    .divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #dee2e6;
+    }
+    
+    .divider-text {
+        padding: 0 1rem;
+        color: #6c757d;
+        font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .social-login {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-btn {
+            width: 100%;
+            border-radius: 6px;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+    }
+</style>
+
+<div class="container py-5 login-container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card login-card">
+                <div class="card-header-custom">
+                    <h2 class="mb-0"><i class="bi bi-box-arrow-in-right me-2"></i>Welcome Back</h2>
+                </div>
+                <div class="card-body p-4 p-md-5">
+                    <!-- {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                    {% endif %} -->
+
+                    <!-- Social Login -->
+                    <div class="social-login">
+                        <a href="{% url 'social:begin' 'google-oauth2' %}" class="social-btn btn-google" title="Login with Google">
+                            <i class="bi bi-google"></i>
+                        </a>
+                    </div>
+
+                    <div class="divider">
+                        <span class="divider-text">or login with email</span>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form method="POST" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        
+                        <!-- Email -->
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="username" name="username" placeholder="name@example.com" required>
+                            <label for="email">Email address</label>
+                            <div class="invalid-feedback">
+                                Please provide a valid email.
+                            </div>
+                        </div>
+                        
+                        <!-- Password -->
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                            <label for="password">Password</label>
+                            <div class="invalid-feedback">
+                                Please enter your password.
+                            </div>
+                        </div>
+                        
+                        <!-- Remember Me & Forgot Password -->
+                        <div class="login-options">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="remember" name="remember" required>
+                                <label class="form-check-label" for="remember">Remember me</label>
+                            </div>
+                            <!-- Change this line in login.html -->
+                            <a href="{% url 'password_reset' %}" class="text-decoration-none">Forgot password?</a>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="d-grid mb-3">
+                            <button class="btn btn-custom-primary btn-lg" type="submit">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                            </button>
+                        </div>
+                        
+                        <!-- Register Link -->
+                        <div class="text-center">
+                            <p>Don't have an account? <a href="{% url 'register' %}" class="text-decoration-none">Sign up here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animate container on load
+        setTimeout(() => {
+            document.querySelector('.login-container').classList.add('animated');
+        }, 100);
+        
+        // Animate divider after slight delay
+        setTimeout(() => {
+            document.querySelector('.divider').classList.add('animated');
+        }, 300);
+        
+        // Form validation
+        const form = document.querySelector('.needs-validation');
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+        
+        // Social button hover effects
+        const socialBtns = document.querySelectorAll('.social-btn');
+        socialBtns.forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% block title %}Customize Your Package | Festiva{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="h4 mb-0">Customize Your Package</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <h4 class="alert-heading">Selected Package: {{ package_name|title }}</h4>
+                            <p>Base Price: ${{ base_price }}</p>
+                        </div>
+
+                        <form method="post" class="needs-validation" novalidate>
+                            {% csrf_token %}
+                            <input type="hidden" name="package_type" value="{{ package_type }}">
+
+                            <div class="mb-4">
+                                <h4 class="mb-3">Event Details</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="event_date" class="form-label">Event Date</label>
+                                        <input type="date" class="form-control" id="event_date" name="event_date" required>
+                                        <div class="invalid-feedback">
+                                            Please select a date for your event.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="guest_count" class="form-label">Number of Guests</label>
+                                        <input type="number" class="form-control" id="guest_count" name="guest_count" min="1" required>
+                                        <div class="invalid-feedback">
+                                            Please enter the number of guests.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h4 class="mb-3">Venue Options</h4>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="venue_option" id="venue_standard" value="standard" checked>
+                                    <label class="form-check-label" for="venue_standard">
+                                        Standard Venue (Included)
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="venue_option" id="venue_premium" value="premium">
+                                    <label class="form-check-label" for="venue_premium">
+                                        Premium Venue (+$500)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="venue_option" id="venue_custom" value="custom">
+                                    <label class="form-check-label" for="venue_custom">
+                                        Custom Venue (Specify below)
+                                    </label>
+                                </div>
+                                <div class="mt-2" id="custom_venue_container" style="display: none;">
+                                    <label for="custom_venue" class="form-label">Custom Venue Details</label>
+                                    <textarea class="form-control" id="custom_venue" name="custom_venue" rows="2"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h4 class="mb-3">Catering Options</h4>
+                                <select class="form-select" name="catering_option" required>
+                                    <option value="" selected disabled>Select catering option</option>
+                                    <option value="basic">Basic Buffet (Included)</option>
+                                    <option value="standard">Standard 3-Course Meal (+$10 per person)</option>
+                                    <option value="premium">Premium 5-Course Meal (+$20 per person)</option>
+                                    <option value="custom">Custom Menu (Specify below)</option>
+                                </select>
+                                <div class="mt-2" id="custom_menu_container" style="display: none;">
+                                    <label for="custom_menu" class="form-label">Custom Menu Requirements</label>
+                                    <textarea class="form-control" id="custom_menu" name="custom_menu" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h4 class="mb-3">Entertainment Options</h4>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" name="entertainment" id="entertainment_dj" value="dj">
+                                    <label class="form-check-label" for="entertainment_dj">
+                                        DJ Service (+$300)
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" name="entertainment" id="entertainment_live" value="live_band">
+                                    <label class="form-check-label" for="entertainment_live">
+                                        Live Band (+$800)
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" name="entertainment" id="entertainment_photo" value="photo_booth">
+                                    <label class="form-check-label" for="entertainment_photo">
+                                        Photo Booth (+$250)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="entertainment" id="entertainment_custom" value="custom">
+                                    <label class="form-check-label" for="entertainment_custom">
+                                        Custom Entertainment (Specify below)
+                                    </label>
+                                </div>
+                                <div class="mt-2" id="custom_entertainment_container" style="display: none;">
+                                    <label for="custom_entertainment" class="form-label">Custom Entertainment Details</label>
+                                    <textarea class="form-control" id="custom_entertainment" name="custom_entertainment" rows="2"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h4 class="mb-3">Additional Services</h4>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" name="additional_services" id="service_photography" value="photography">
+                                    <label class="form-check-label" for="service_photography">
+                                        Professional Photography (+$400)
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" name="additional_services" id="service_videography" value="videography">
+                                    <label class="form-check-label" for="service_videography">
+                                        Videography (+$600)
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" name="additional_services" id="service_planner" value="event_planner">
+                                    <label class="form-check-label" for="service_planner">
+                                        Dedicated Event Planner (+$750)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="additional_services" id="service_custom" value="custom">
+                                    <label class="form-check-label" for="service_custom">
+                                        Other Custom Services (Specify below)
+                                    </label>
+                                </div>
+                                <div class="mt-2" id="custom_services_container" style="display: none;">
+                                    <label for="custom_services" class="form-label">Custom Service Details</label>
+                                    <textarea class="form-control" id="custom_services" name="custom_services" rows="2"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h4 class="mb-3">Special Requests</h4>
+                                <textarea class="form-control" name="special_requests" rows="4" placeholder="Any special requirements or customizations you'd like to add..."></textarea>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="submit" class="btn btn-primary btn-lg px-4 me-md-2">
+                                    <i class="bi bi-calculator me-2"></i> Get Custom Quote
+                                </button>
+                                <button type="reset" class="btn btn-outline-secondary btn-lg px-4">
+                                    Reset Form
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Show/hide custom venue field based on selection
+document.querySelectorAll('input[name="venue_option"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        document.getElementById('custom_venue_container').style.display = 
+            this.value === 'custom' ? 'block' : 'none';
+    });
+});
+
+// Show/hide custom menu field when custom catering is selected
+document.querySelector('select[name="catering_option"]').addEventListener('change', function() {
+    document.getElementById('custom_menu_container').style.display = 
+        this.value === 'custom' ? 'block' : 'none';
+});
+
+// Show/hide custom entertainment field when custom option is checked
+document.getElementById('entertainment_custom').addEventListener('change', function() {
+    document.getElementById('custom_entertainment_container').style.display = 
+        this.checked ? 'block' : 'none';
+});
+
+// Show/hide custom services field when custom option is checked
+document.getElementById('service_custom').addEventListener('change', function() {
+    document.getElementById('custom_services_container').style.display = 
+        this.checked ? 'block' : 'none';
+});
+
+// Form validation
+(function() {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            form.classList.add('was-validated');
+        }, false);
+    });
+})();
+</script>
+{% endblock %}

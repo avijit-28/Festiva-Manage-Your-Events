@@ -1,0 +1,643 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --primary: #6c5ce7;
+        --secondary: #a29bfe;
+        --success: #00b894;
+        --info: #0984e3;
+        --warning: #fdcb6e;
+        --danger: #d63031;
+        --dark: #2d3436;
+        --light: #f5f6fa;
+    }
+    
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    /* Glassmorphism card style */
+    .card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+    }
+    
+    /* Stats card styling */
+    .stat-card {
+        position: relative;
+        overflow: hidden;
+        border-left: 0;
+        border-radius: 12px;
+    }
+    
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--primary), var(--info));
+    }
+    
+    .stat-card .stat-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(108, 92, 231, 0.1);
+    }
+    
+    /* Animated gradient border */
+    .gradient-border {
+        position: relative;
+        border-radius: 12px;
+    }
+    
+    .gradient-border::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -1;
+        background: linear-gradient(45deg, var(--primary), var(--info), var(--success));
+        background-size: 200% 200%;
+        border-radius: 14px;
+        animation: gradient 3s ease infinite;
+    }
+    
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    /* Table styling */
+    .table {
+        border-collapse: separate;
+        border-spacing: 0 8px;
+    }
+    
+    .table thead th {
+        border: none;
+        background: rgba(108, 92, 231, 0.1);
+        color: var(--dark);
+        font-weight: 600;
+    }
+    
+    .table tbody tr {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+    }
+    
+    .table tbody tr:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    
+    .table tbody td {
+        border-top: none;
+        vertical-align: middle;
+        padding: 16px;
+    }
+    
+    .table tbody tr:first-child td:first-child {
+        border-top-left-radius: 12px;
+    }
+    
+    .table tbody tr:first-child td:last-child {
+        border-top-right-radius: 12px;
+    }
+    
+    /* Progress bar */
+    .progress {
+        height: 6px;
+        border-radius: 3px;
+        background: rgba(0,0,0,0.05);
+    }
+    
+    .progress-bar {
+        border-radius: 3px;
+        background: linear-gradient(to right, var(--primary), var(--info));
+    }
+    
+    /* Badges */
+    .badge {
+        padding: 6px 10px;
+        border-radius: 8px;
+        font-weight: 500;
+    }
+    
+    .badge-active {
+        background: rgba(0, 184, 148, 0.1);
+        color: var(--success);
+    }
+    
+    .badge-planning {
+        background: rgba(253, 203, 110, 0.1);
+        color: #e17055;
+    }
+    
+    /* Activity feed */
+    .feed-item {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 16px;
+    }
+    
+    .feed-item::before {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 24px;
+        bottom: -16px;
+        width: 2px;
+        background: rgba(108, 92, 231, 0.1);
+    }
+    
+    .feed-item:last-child::before {
+        display: none;
+    }
+    
+    .feed-dot {
+        position: absolute;
+        left: 0;
+        top: 4px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--primary);
+        border: 2px solid white;
+        box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.3);
+    }
+    
+    /* Quick actions */
+    .quick-action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 120px;
+        border-radius: 12px;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        text-align: center;
+        color: var(--dark);
+    }
+    
+    .quick-action:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        color: var(--primary);
+    }
+    
+    .quick-action i {
+        font-size: 24px;
+        margin-bottom: 12px;
+        background: linear-gradient(to right, var(--primary), var(--info));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate {
+        animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    
+    /* Chart container */
+    .chart-container {
+        position: relative;
+        height: 250px;
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard Overview</h1>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-calendar-alt mr-2"></i>Last 30 Days
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Last 7 Days</a>
+                <a class="dropdown-item" href="#">Last 30 Days</a>
+                <a class="dropdown-item" href="#">Last 90 Days</a>
+                <a class="dropdown-item" href="#">This Year</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-xl-3 col-md-6 mb-4 animate delay-1">
+            <div class="card stat-card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-2">Total Events</h6>
+                            <h3 class="mb-0">{{ total_events }}</h3>
+                            <div class="mt-2">
+                                <span class="badge badge-success">+32%</span>
+                                <small class="text-muted ml-2">vs last month</small>
+                            </div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4 animate delay-2">
+            <div class="card stat-card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-2">Total Attendees</h6>
+                            <h3 class="mb-0">{{ total_attendees }}</h3>
+                            <div class="mt-2">
+                                <span class="badge badge-success">+98%</span>
+                                <small class="text-muted ml-2">vs last month</small>
+                            </div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-users text-info"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4 animate delay-3">
+            <div class="card stat-card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-2">Ticket Sales</h6>
+                            <h3 class="mb-0">${{ ticket_sales }}</h3>
+                            <div class="mt-2">
+                                <span class="badge badge-success">+24%</span>
+                                <small class="text-muted ml-2">vs last month</small>
+                            </div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-ticket-alt text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4 animate delay-4">
+            <div class="card stat-card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-2">Upcoming Events</h6>
+                            <h3 class="mb-0">{{ upcoming_events }}</h3>
+                            <div class="mt-2">
+                                <span class="badge badge-danger">-5%</span>
+                                <small class="text-muted ml-2">vs last month</small>
+                            </div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-clock text-danger"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="row mb-4">
+        <div class="col-lg-8 mb-4">
+            <div class="card gradient-border h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="m-0 font-weight-bold">Event Attendance Trend</h6>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                                Monthly
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Daily</a>
+                                <a class="dropdown-item" href="#">Weekly</a>
+                                <a class="dropdown-item" href="#">Monthly</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="attendanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h6 class="font-weight-bold mb-3">Revenue by Event Type</h6>
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Events Table -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold">Upcoming Events</h6>
+                    <a href="{% url 'create_event' %}" class="btn btn-sm btn-primary">
+                        <i class="fas fa-plus mr-1"></i> Add Event
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Event Name</th>
+                                    <th>Date & Time</th>
+                                    <th>Location</th>
+                                    <th>Attendance</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for event in events %}
+                                <tr>
+                                    <td>
+                                        <strong>{{ event.name }}</strong><br>
+                                        <small class="text-muted">{{ event.event_type }}</small>
+                                    </td>
+                                    <td>
+                                        {{ event.start_date|date:"M d, Y" }}<br>
+                                        <small class="text-muted">{{ event.start_time|time:"g:i A" }} - {{ event.end_time|time:"g:i A" }}</small>
+                                    </td>
+                                    <td>
+                                        <strong>{{ event.venue }}</strong><br>
+                                        <small class="text-muted">{{ event.location }}</small>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="progress mr-2" style="width: 80px; height: 6px;">
+                                                <div class="progress-bar" role="progressbar" 
+                                                     style="width: 0%" 
+                                                     data-width="{{ event.attendance_percentage }}"
+                                                     aria-valuenow="{{ event.attendance_percentage }}" 
+                                                     aria-valuemin="0" 
+                                                     aria-valuemax="100"></div>
+                                            </div>
+                                            <span>{{ event.attendee_count }}/{% if event.capacity %}{{ event.capacity }}{% else %}∞{% endif %}</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge 
+                                            {% if event.status == 'Active' %}badge-active
+                                            {% elif event.status == 'Planning' %}badge-planning
+                                            {% else %}badge-secondary{% endif %}">
+                                            {{ event.status }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="{% url 'edit_event' event.id %}" class="btn btn-sm btn-outline-primary mr-2">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="{% url 'delete_event' event.id %}" class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity and Quick Actions -->
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold">Recent Activity</h6>
+                </div>
+                <div class="card-body">
+                    <div class="activity-feed">
+                        {% for activity in recent_activity %}
+                        <div class="feed-item">
+                            <div class="feed-dot"></div>
+                            <div class="feed-content">
+                                <strong>{{ activity.action }}</strong>
+                                <small class="text-muted d-block">{{ activity.time }}</small>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold">Quick Actions</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <a href="{% url 'create_event' %}" class="quick-action">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>Create Event</span>
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="#" class="quick-action">
+                                <i class="fas fa-ticket-alt"></i>
+                                <span>Manage Tickets</span>
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="#" class="quick-action">
+                                <i class="fas fa-chart-pie"></i>
+                                <span>View Reports</span>
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="#" class="quick-action">
+                                <i class="fas fa-user-friends"></i>
+                                <span>Manage Attendees</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Initialize animations on scroll
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate elements when they come into view
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.animate');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+    
+    // Initialize
+    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Animate progress bars
+    const animateProgressBars = function() {
+        const progressBars = document.querySelectorAll('.progress-bar');
+        
+        progressBars.forEach(bar => {
+            const elementPosition = bar.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width + '%';
+            }
+        });
+    };
+    
+    window.addEventListener('load', animateProgressBars);
+    window.addEventListener('scroll', animateProgressBars);
+    
+    // Initialize charts
+    // Attendance Trend Chart (Line Chart)
+    const attendanceCtx = document.getElementById('attendanceChart').getContext('2d');
+    const attendanceChart = new Chart(attendanceCtx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: 'Attendees',
+                data: [450, 620, 780, 910, 1200, 1450, 1842],
+                borderColor: '#6c5ce7',
+                backgroundColor: 'rgba(108, 92, 231, 0.1)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(0,0,0,0.05)'
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+    
+    // Revenue by Event Type Chart (Doughnut Chart)
+    const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+    const revenueChart = new Chart(revenueCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Conferences', 'Concerts', 'Workshops', 'Fundraisers'],
+            datasets: [{
+                data: [12000, 8000, 2500, 1889],
+                backgroundColor: [
+                    '#6c5ce7',
+                    '#00b894',
+                    '#0984e3',
+                    '#fdcb6e'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '70%',
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        padding: 20
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

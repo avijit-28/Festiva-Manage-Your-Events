@@ -1,0 +1,605 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | Festiva{% endblock %}
+
+{% block content %}
+<!-- {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+  {% endfor %}
+{% endif %} -->
+
+<!-- Welcome Section with Clickable Photo Stack -->
+<section class="py-5 aws-section" data-aws-animation="fadeInUp">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold aws-item" data-aws-delay="100">Welcome to <span class="text-primary-custom">Festiva</span></h1>
+        <p class="lead mt-3 aws-item" data-aws-delay="200">Discover, Book, and Manage Events Seamlessly</p>
+        <p class="mt-3 aws-item" data-aws-delay="300">Your premier destination for creating unforgettable experiences. From intimate gatherings to grand celebrations, we make event planning effortless.</p>
+        <a href="{% url 'testimonials' %}" class="btn btn-custom-primary btn-lg mt-3 aws-item" data-aws-delay="400">
+          <i class="bi bi-calendar-event me-2"></i> Testimonials
+        </a>
+        <a href="{% url 'blog' %}" class="btn btn-custom-primary btn-lg mt-3 aws-item" data-aws-delay="400">
+          <i class="bi bi-calendar-event me-2"></i> Blogging
+        </a>
+      </div>
+      <div class="col-lg-6 mt-4 mt-lg-0">
+        <div class="clickable-photo-stack aws-item" data-aws-delay="500">
+          <div class="photo-stack-container">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                 class="stack-photo" data-index="0" alt="Happy couple at wedding">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                 class="stack-photo" data-index="1" alt="Wedding ceremony">
+            <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                 class="stack-photo" data-index="2" alt="Birthday celebration">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                 class="stack-photo" data-index="3" alt="Corporate event">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="py-5 bg-light aws-section" data-aws-animation="fadeIn">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-5 mb-4 mb-lg-0 aws-item" data-aws-delay="100">
+        <img src="https://images.unsplash.com/photo-1587271636175-90d58cdad458?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+             class="img-fluid rounded shadow about-img" alt="Wedding pandal with people attending">
+      </div>
+
+      <div class="col-lg-7">
+        <h2 class="display-5 fw-bold mb-3 aws-item" data-aws-delay="200">About <span class="text-primary-custom">Festiva</span></h2>
+
+        <!-- Feature Cards Row -->
+        <div class="row gy-3 gx-4">
+          <div class="col-md-12 d-flex align-items-start aws-item" data-aws-delay="300">
+            <div class="icon-square bg-primary-custom text-white rounded-circle me-3">
+              <i class="bi bi-stars fs-4"></i>
+            </div>
+            <div>
+              <h5 class="mb-1">Vision</h5>
+              <p class="mb-0">To revolutionize event management through innovative technology and exceptional service.</p>
+            </div>
+          </div>
+
+          <div class="col-md-12 d-flex align-items-start aws-item" data-aws-delay="400">
+            <div class="icon-square bg-primary-custom text-white rounded-circle me-3">
+              <i class="bi bi-bullseye fs-4"></i>
+            </div>
+            <div>
+              <h5 class="mb-1">Mission</h5>
+              <p class="mb-0">Making event planning accessible, efficient, and stress-free for everyone.</p>
+            </div>
+          </div>
+
+          <div class="col-md-12 d-flex align-items-start aws-item" data-aws-delay="500">
+            <div class="icon-square bg-primary-custom text-white rounded-circle me-3">
+              <i class="bi bi-heart-fill fs-4"></i>
+            </div>
+            <div>
+              <h5 class="mb-1">Values</h5>
+              <p class="mb-0">Creativity, Excellence, and Customer Satisfaction at our core.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="lead mt-4 aws-item" data-aws-delay="600">Founded in 2023, Festiva has quickly become a trusted name in event management.</p>
+        <a href="{% url 'about' %}" class="btn btn-outline-primary mt-2 aws-item" data-aws-delay="700">Learn More About Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popular Categories Section -->
+<section class="py-5 aws-section" data-aws-animation="fadeInUp">
+  <div class="container">
+    <h2 class="text-center mb-4 aws-item" data-aws-delay="100">Popular Categories</h2>
+    <div class="categories-carousel aws-item" data-aws-delay="200" id="categoriesCarousel">
+      <div class="categories-track" id="categoriesTrack">
+        <!-- Music -->
+        <div class="category-card">
+          <div class="card card-custom h-100">
+            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                 class="card-img-top" alt="Music Concert">
+            <div class="card-body text-center">
+              <i class="bi bi-music-note-beamed fs-1 text-primary-custom mb-2"></i>
+              <h5 class="card-title">Music</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Conferences -->
+        <div class="category-card">
+          <div class="card card-custom h-100">
+            <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                 class="card-img-top" alt="Conference">
+            <div class="card-body text-center">
+              <i class="bi bi-person-video3 fs-1 text-success mb-2"></i>
+              <h5 class="card-title">Conferences</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Wedding -->
+        <div class="category-card">
+          <div class="card card-custom h-100">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                 class="card-img-top" alt="Wedding">
+            <div class="card-body text-center">
+              <i class="bi bi-hearts fs-1 text-danger mb-2"></i>
+              <h5 class="card-title">Wedding</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Birthday -->
+        <div class="category-card">
+          <div class="card card-custom h-100">
+            <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                 class="card-img-top" alt="Birthday">
+            <div class="card-body text-center">
+              <i class="bi bi-balloon fs-1 text-info mb-2"></i>
+              <h5 class="card-title">Birthday</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Rice Ceremony -->
+        <div class="category-card">
+          <div class="card card-custom h-100">
+            <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                 class="card-img-top" alt="Rice Ceremony">
+            <div class="card-body text-center">
+              <i class="bi bi-mortarboard fs-1 text-primary-custom mb-2"></i>
+              <h5 class="card-title">Rice Ceremony</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Corporate -->
+        <div class="category-card">
+          <div class="card card-custom h-100">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                 class="card-img-top" alt="Corporate Event">
+            <div class="card-body text-center">
+              <i class="bi bi-cup-hot fs-1 text-secondary mb-2"></i>
+              <h5 class="card-title">Corporate</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5 bg-light aws-section" data-aws-animation="fadeIn">
+  <div class="container">
+    <h2 class="text-center mb-4 aws-item" data-aws-delay="100">Why Choose Festiva?</h2>
+    <div class="row g-4">
+      <div class="col-md-4 aws-item" data-aws-delay="200">
+        <div class="card card-custom h-100">
+          <div class="card-body text-center">
+            <i class="bi bi-lightning-charge fs-1 text-info mb-3"></i>
+            <h5>Instant Bookings</h5>
+            <p>Book your tickets in seconds with our fast and secure system.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 aws-item" data-aws-delay="300">
+        <div class="card card-custom h-100">
+          <div class="card-body text-center">
+            <i class="bi bi-people fs-1 text-warning mb-3"></i>
+            <h5>Organizer Friendly</h5>
+            <p>Manage events, track attendees, and process payments easily.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 aws-item" data-aws-delay="400">
+        <div class="card card-custom h-100">
+          <div class="card-body text-center">
+            <i class="bi bi-shield-check fs-1 text-success mb-3"></i>
+            <h5>Secure & Trusted</h5>
+            <p>Protected payments and verified listings ensure peace of mind.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* AWS Animation Classes */
+  .aws-section {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .aws-section.aws-animated {
+    opacity: 1;
+  }
+  
+  /* Fade In Animation */
+  [data-aws-animation="fadeIn"].aws-animated {
+    opacity: 1;
+  }
+  
+  /* Fade In Up Animation */
+  [data-aws-animation="fadeInUp"].aws-animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  [data-aws-animation="fadeInUp"] {
+    transform: translateY(30px);
+  }
+  
+  /* Fade In Down Animation */
+  [data-aws-animation="fadeInDown"].aws-animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  [data-aws-animation="fadeInDown"] {
+    transform: translateY(-30px);
+  }
+  
+  /* Fade In Left Animation */
+  [data-aws-animation="fadeInLeft"].aws-animated {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  [data-aws-animation="fadeInLeft"] {
+    transform: translateX(-30px);
+  }
+  
+  /* Fade In Right Animation */
+  [data-aws-animation="fadeInRight"].aws-animated {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  [data-aws-animation="fadeInRight"] {
+    transform: translateX(30px);
+  }
+  
+  /* Individual Items */
+  .aws-item {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .aws-item.aws-animated {
+    opacity: 1;
+  }
+  
+  /* Photo Stack Styles */
+  .photo-stack-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+  }
+
+  .stack-photo {
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    top: 0;
+    left: 50%;
+    transform-origin: bottom center;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    border: 8px solid white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, z-index 0.3s;
+    cursor: pointer;
+  }
+
+  /* Large screens (Default) */
+  .stack-photo[data-index="0"] {
+    transform: translateX(-180px) rotate(-15deg);
+    z-index: 1;
+  }
+  .stack-photo[data-index="1"] {
+    transform: translateX(-90px) rotate(-5deg);
+    z-index: 2;
+  }
+  .stack-photo[data-index="2"] {
+    transform: translateX(0) rotate(5deg);
+    z-index: 3;
+  }
+  .stack-photo[data-index="3"] {
+    transform: translateX(90px) rotate(15deg);
+    z-index: 4;
+  }
+
+  .stack-photo.active {
+    transform: translateX(0) translateY(-30px) rotate(0deg) scale(1.05);
+    z-index: 10;
+  }
+
+  /* Medium screens (tablets) */
+  @media (max-width: 992px) {
+    .photo-stack-container {
+      height: 320px;
+    }
+
+    .stack-photo {
+      width: 200px;
+      height: 280px;
+    }
+
+    .stack-photo[data-index="0"] {
+      transform: translateX(-140px) rotate(-12deg);
+    }
+    .stack-photo[data-index="1"] {
+      transform: translateX(-70px) rotate(-4deg);
+    }
+    .stack-photo[data-index="2"] {
+      transform: translateX(0px) rotate(4deg);
+    }
+    .stack-photo[data-index="3"] {
+      transform: translateX(70px) rotate(12deg);
+    }
+  }
+
+  /* Small screens (phones) */
+  @media (max-width: 576px) {
+    .photo-stack-container {
+      display: flex;
+      overflow-x: auto;
+      height: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .stack-photo {
+      position: static;
+      flex: 0 0 auto;
+      width: 80%;
+      height: 200px;
+      transform: none !important;
+      z-index: auto !important;
+      border-radius: 0.5rem;
+    }
+
+    .stack-photo.active {
+      transform: scale(1.02);
+    }
+  }
+  
+  /* About Section Styles */
+  .about-img {
+    border: 8px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .icon-square {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+  }
+
+  .icon-square:hover {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    .about-img {
+      max-height: 300px;
+    }
+
+    .icon-square {
+      width: 45px;
+      height: 45px;
+      font-size: 1rem;
+    }
+  }
+
+  /* Categories Carousel Styles */
+  .categories-carousel {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 2rem 0;
+  }
+  
+  .categories-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+  }
+  
+  .category-card {
+    flex: 0 0 320px;
+    transition: all 0.4s ease;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-10px) scale(1.03);
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-320px * 6 - 2rem * 5));
+    }
+  }
+  
+  .categories-carousel:hover .categories-track {
+    animation-play-state: paused;
+  }
+  
+  /* Feature Cards */
+  .feature-card {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .category-card {
+      flex: 0 0 280px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .category-card {
+      flex: 0 0 240px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .categories-track {
+      gap: 1rem;
+    }
+    
+    .category-card {
+      flex: 0 0 200px;
+    }
+  }
+</style>
+
+<script>
+  // AWS Animation Script
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AWS for sections
+    const awsSections = document.querySelectorAll('.aws-section');
+    
+    const awsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const section = entry.target;
+          section.classList.add('aws-animated');
+          
+          // Get animation type from data attribute
+          const animationType = section.getAttribute('data-aws-animation') || 'fadeIn';
+          section.setAttribute('data-aws-animation', animationType);
+          
+          // Animate child items with delays
+          const items = section.querySelectorAll('.aws-item');
+          items.forEach(item => {
+            const delay = parseInt(item.getAttribute('data-aws-delay')) || 0;
+            
+            setTimeout(() => {
+              item.classList.add('aws-animated');
+            }, delay);
+          });
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    awsSections.forEach(section => {
+      awsObserver.observe(section);
+    });
+    
+    // Photo Stack Animation
+    const photos = document.querySelectorAll('.stack-photo');
+    let currentFrontIndex = 0;
+    
+    // Set first photo as active
+    photos[currentFrontIndex].classList.add('active');
+    
+    // Click handler for photos
+    photos.forEach(photo => {
+      photo.addEventListener('click', function() {
+        // Get current index and calculate next index
+        const clickedIndex = parseInt(this.getAttribute('data-index'));
+        
+        // Only proceed if clicked photo is the current front photo
+        if (clickedIndex !== currentFrontIndex) return;
+        
+        // Calculate next index (circular)
+        const nextIndex = (currentFrontIndex + 1) % photos.length;
+        
+        // Update classes
+        photos[currentFrontIndex].classList.remove('active');
+        photos[nextIndex].classList.add('active');
+        
+        // Reorder z-indexes to maintain stack
+        photos.forEach((p, index) => {
+          if (index === nextIndex) {
+            p.style.zIndex = '10';
+          } else if (index === currentFrontIndex) {
+            p.style.zIndex = '1';
+          } else {
+            p.style.zIndex = (photos.length - index).toString();
+          }
+        });
+        
+        currentFrontIndex = nextIndex;
+      });
+    });
+    
+    // Categories Carousel
+    const track = document.getElementById('categoriesTrack');
+    const carousel = document.getElementById('categoriesCarousel');
+    
+    // Clone items for infinite loop
+    const items = document.querySelectorAll('.category-card');
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
+      track.appendChild(clone);
+    });
+    
+    // Reset animation for seamless loop
+    track.addEventListener('animationiteration', () => {
+      const clones = document.querySelectorAll('.category-card:nth-child(n+7)');
+      clones.forEach(clone => clone.remove());
+      
+      items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+    });
+    
+    // Pause on hover
+    const cards = document.querySelectorAll('.category-card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        track.style.animationPlayState = 'paused';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        track.style.animationPlayState = 'running';
+      });
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+
+{% block title %}Careers | Festiva{% endblock %}
+
+{% block content %}
+<div class="careers-page">
+    <!-- Hero Section -->
+    <section class="careers-hero py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">Join Our Event Team</h1>
+                    <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">We're building the ultimate event experience platform. Come be part of something extraordinary.</p>
+                    <a href="#open-positions" class="btn btn-primary btn-lg px-4 animate__animated animate__fadeInUp animate__delay-1s">View Open Positions</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Event team working together" 
+                         class="img-fluid rounded shadow-lg animate__animated animate__zoomIn animate__delay-1s">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Positions Section -->
+    <section id="open-positions" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Current Openings</h2>
+                <p class="text-muted">Browse our available positions</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Event Manager -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp">
+                    <div class="card h-100 border-0 shadow-sm position-card">
+                        <div class="card-body p-4">
+                            <span class="badge bg-primary mb-2">Management</span>
+                            <h4 class="card-title">Event Manager</h4>
+                            <p class="card-text text-muted">Oversee event planning and execution from conception to completion.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-geo-alt"></i> Any Location</li>
+                                <li><i class="bi bi-briefcase"></i> Full-time</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="{% url 'apply_now' %}?position=Event+Manager" class="btn btn-outline-primary w-100">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Manager -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp" data-delay="100">
+                    <div class="card h-100 border-0 shadow-sm position-card">
+                        <div class="card-body p-4">
+                            <span class="badge bg-primary mb-2">Management</span>
+                            <h4 class="card-title">Project Manager</h4>
+                            <p class="card-text text-muted">Coordinate cross-functional teams to deliver successful events.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-geo-alt"></i> Any Location</li>
+                                <li><i class="bi bi-briefcase"></i> Full-time</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="{% url 'apply_now' %}?position=Project+Manager" class="btn btn-outline-primary w-100">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Photographer -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp" data-delay="200">
+                    <div class="card h-100 border-0 shadow-sm position-card">
+                        <div class="card-body p-4">
+                            <span class="badge bg-success mb-2">Creative</span>
+                            <h4 class="card-title">Event Photographer</h4>
+                            <p class="card-text text-muted">Capture stunning moments at our events and create visual content.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-geo-alt"></i> Various Locations</li>
+                                <li><i class="bi bi-briefcase"></i> Contract/Freelance</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="{% url 'apply_now' %}?position=Event+Photographer" class="btn btn-outline-primary w-100">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Host -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp">
+                    <div class="card h-100 border-0 shadow-sm position-card">
+                        <div class="card-body p-4">
+                            <span class="badge bg-warning mb-2">Hospitality</span>
+                            <h4 class="card-title">Event Host</h4>
+                            <p class="card-text text-muted">Engage audiences and ensure smooth event flow as our charismatic host.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-geo-alt"></i> Various Locations</li>
+                                <li><i class="bi bi-briefcase"></i> Part-time/Contract</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="{% url 'apply_now' %}?position=Event+Host" class="btn btn-outline-primary w-100">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catering Manager -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp" data-delay="100">
+                    <div class="card h-100 border-0 shadow-sm position-card">
+                        <div class="card-body p-4">
+                            <span class="badge bg-danger mb-2">Food Service</span>
+                            <h4 class="card-title">Catering Manager</h4>
+                            <p class="card-text text-muted">Oversee food service operations for our premium events.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-geo-alt"></i> Major Cities</li>
+                                <li><i class="bi bi-briefcase"></i> Full-time</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="{% url 'apply_now' %}?position=Catering+Manager" class="btn btn-outline-primary w-100">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Decorator -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp" data-delay="200">
+                    <div class="card h-100 border-0 shadow-sm position-card">
+                        <div class="card-body p-4">
+                            <span class="badge bg-info mb-2">Creative</span>
+                            <h4 class="card-title">Event Decorator</h4>
+                            <p class="card-text text-muted">Design and implement stunning event décors and themes.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-geo-alt"></i> Various Locations</li>
+                                <li><i class="bi bi-briefcase"></i> Contract/Freelance</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="{% url 'apply_now' %}?position=Event+Decorator" class="btn btn-outline-primary w-100">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DJ Operator -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp">
+                    <div class="card h-100 border-0 shadow-sm position-card">
+                        <div class="card-body p-4">
+                            <span class="badge bg-purple mb-2">Entertainment</span>
+                            <h4 class="card-title">DJ Operator</h4>
+                            <p class="card-text text-muted">Create amazing atmospheres with your music at our events.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-geo-alt"></i> Various Locations</li>
+                                <li><i class="bi bi-briefcase"></i> Contract/Freelance</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="{% url 'apply_now' %}?position=DJ+Operator" class="btn btn-outline-primary w-100">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Software Developer -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp" data-delay="100">
+                    <div class="card h-100 border-0 shadow-sm position-card">
+                        <div class="card-body p-4">
+                            <span class="badge bg-dark mb-2">Technology</span>
+                            <h4 class="card-title">Software Developer</h4>
+                            <p class="card-text text-muted">Build and maintain our event management platform.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-geo-alt"></i> Remote</li>
+                                <li><i class="bi bi-briefcase"></i> Full-time</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="{% url 'apply_now' %}?position=Software+Developer" class="btn btn-outline-primary w-100">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More positions can be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Apply Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-5 fw-bold mb-4">How to Apply</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4 animate__animated" data-animation="fadeInUp">
+                            <div class="p-3">
+                                <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle mx-auto mb-3">
+                                    <i class="bi bi-search fs-3"></i>
+                                </div>
+                                <h5>Find Your Role</h5>
+                                <p class="text-muted">Browse our open positions</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 animate__animated" data-animation="fadeInUp" data-delay="100">
+                            <div class="p-3">
+                                <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle mx-auto mb-3">
+                                    <i class="bi bi-file-earmark-text fs-3"></i>
+                                </div>
+                                <h5>Submit Application</h5>
+                                <p class="text-muted">Complete our simple form</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 animate__animated" data-animation="fadeInUp" data-delay="200">
+                            <div class="p-3">
+                                <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle mx-auto mb-3">
+                                    <i class="bi bi-people fs-3"></i>
+                                </div>
+                                <h5>Interview</h5>
+                                <p class="text-muted">Meet our team</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url 'apply_now' %}" class="btn btn-primary mt-4 px-4">General Application</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .careers-hero {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    
+    .position-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .position-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    
+    .icon-box {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .bg-purple {
+        background-color: #6f42c1;
+    }
+    
+    /* Animation Styles */
+    [data-animation] {
+        opacity: 0;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Scroll animations
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('[data-animation]');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                const animation = element.getAttribute('data-animation');
+                const delay = element.getAttribute('data-delay') || 0;
+                
+                element.style.animationDelay = `${delay}ms`;
+                element.classList.add('animate__animated', `animate__${animation}`);
+                element.style.opacity = 1;
+            }
+        });
+    };
+    
+    // Run on load and scroll
+    animateOnScroll();
+    window.addEventListener('scroll', animateOnScroll);
+});
+</script>
+{% endblock %}

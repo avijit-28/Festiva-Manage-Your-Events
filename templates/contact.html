@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - Festiva{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-primary">Contact Us</h2>
+      <p class="text-muted">Have a question or need support? Reach out and we’ll get back to you shortly!</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form method="POST" action="">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" name="subject" id="subject" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea name="message" id="message" class="form-control" rows="5" required></textarea>
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-4 bg-white text-center">
+  <div class="container">
+    <p class="mb-1"><strong>Email:</strong> support@festiva.com</p>
+    <p class="mb-1"><strong>Phone:</strong> +91-9876543210</p>
+    <p><strong>Address:</strong> JIS University, Kolkata, West Bengal</p>
+  </div>
+</section>
+{% endblock %}

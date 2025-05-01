@@ -1,0 +1,804 @@
+{% extends 'base.html' %}
+{% block title %}Pricing | Festiva{% endblock %}
+{% block content %}
+<!-- Pricing Header Section -->
+<section class="py-5 bg-light aws-section" data-aws-animation="fadeIn">
+<div class="container text-center">
+<h1 class="display-4 fw-bold mb-3">Event Pricing Packages</h1>
+<p class="lead">Transparent pricing for every celebration. Choose the perfect package for your special occasion.</p>
+<div class="d-flex justify-content-center mt-4">
+<div class="btn-group" role="group">
+<a class="btn btn-outline-primary" href="#wedding">Wedding</a>
+<a class="btn btn-outline-primary" href="#corporate">Corporate</a>
+<a class="btn btn-outline-primary" href="#birthday">Birthday</a>
+<a class="btn btn-outline-primary" href="#conference">Conference</a>
+<a class="btn btn-outline-primary" href="#rice">Rice Ceremony</a>
+<a class="btn btn-outline-primary" href="#music">Music Concerts</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Wedding Pricing Section -->
+<section class="py-5 aws-section" data-aws-animation="fadeInUp" id="wedding">
+<div class="container">
+<h2 class="text-center mb-5"><i class="bi bi-hearts text-danger me-2"></i> Wedding Packages</h2>
+<div class="row g-4">
+<!-- Premium Wedding Package -->
+<div class="col-md-4 aws-item" data-aws-delay="100">
+<div class="card pricing-card h-100 border-primary border-2">
+<div class="card-header bg-primary text-white text-center py-4">
+<h3 class="my-0 fw-normal">Royal Wedding</h3>
+<div class="display-4 fw-bold my-3">$5,000</div>
+<small class="text-white-50">Perfect for grand celebrations</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 300 guests</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Premium catering (5-course meal)</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Professional photography &amp; videography</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Floral decorations (premium flowers)</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Live band performance</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Wedding planner included</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Luxury bridal suite</li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="/customize/?package=royal_wedding" class="btn btn-lg btn-primary">Choose Package</a>
+
+</div>
+</div>
+</div>
+
+<!-- Standard Wedding Package -->
+<div class="col-md-4 aws-item" data-aws-delay="200">
+<div class="card pricing-card h-100 border-warning border-2">
+<div class="card-header bg-warning text-dark text-center py-4">
+<h3 class="my-0 fw-normal">Classic Wedding</h3>
+<div class="display-4 fw-bold my-3">$2,500</div>
+<small class="text-dark-50">Beautiful traditional celebration</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 150 guests</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Standard catering (3-course meal)</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Professional photography</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic floral decorations</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> DJ music service</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Wedding planner</del></li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Bridal suite</del></li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="/customize/?package=classic_wedding" class="btn btn-lg btn-warning">Choose Package</a>
+</div>
+</div>
+</div>
+
+<!-- Budget Wedding Package -->
+<div class="col-md-4 aws-item" data-aws-delay="300">
+<div class="card pricing-card h-100 border-success border-2">
+<div class="card-header bg-success text-white text-center py-4">
+<h3 class="my-0 fw-normal">Intimate Wedding</h3>
+<div class="display-4 fw-bold my-3">$1,000</div>
+<small class="text-white-50">Simple and elegant</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 50 guests</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Buffet catering</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic photography</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Floral decorations</del></li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Music service</del></li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Wedding planner</del></li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Bridal suite</del></li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="/customize/?package=intimate_wedding" class="btn btn-lg btn-success">Choose Package</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Wedding Comparison Table -->
+<div class="mt-5 aws-item" data-aws-delay="400">
+<h3 class="text-center mb-4">Wedding Packages Comparison</h3>
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
+<thead class="table-primary">
+<tr>
+<th>Feature</th>
+<th>Royal Wedding ($5,000)</th>
+<th>Classic Wedding ($2,500)</th>
+<th>Intimate Wedding ($1,000)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guest Capacity</td>
+<td>300</td>
+<td>150</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Catering</td>
+<td>5-course premium meal</td>
+<td>3-course standard meal</td>
+<td>Buffet</td>
+</tr>
+<tr>
+<td>Photography</td>
+<td>Professional photo &amp; video</td>
+<td>Professional photography</td>
+<td>Basic photography</td>
+</tr>
+<tr>
+<td>Decorations</td>
+<td>Premium floral decorations</td>
+<td>Basic floral decorations</td>
+<td>Minimal decorations</td>
+</tr>
+<tr>
+<td>Entertainment</td>
+<td>Live band</td>
+<td>DJ service</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Planning Support</td>
+<td>Dedicated wedding planner</td>
+<td>Basic coordination</td>
+<td>Self-planned</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Corporate Pricing Section -->
+<section class="py-5 bg-light aws-section" data-aws-animation="fadeInUp" id="corporate">
+<div class="container">
+<h2 class="text-center mb-5"><i class="bi bi-briefcase text-primary me-2"></i> Corporate Packages</h2>
+<div class="row g-4">
+<!-- Premium Corporate Package -->
+<div class="col-md-4 aws-item" data-aws-delay="100">
+<div class="card pricing-card h-100 border-primary border-2">
+<div class="card-header bg-primary text-white text-center py-4">
+<h3 class="my-0 fw-normal">Executive Summit</h3>
+<div class="display-4 fw-bold my-3">$3,000</div>
+<small class="text-white-50">For high-profile corporate events</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Conference hall for 200</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Premium AV equipment</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Gourmet catering</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Professional event photography</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Dedicated event coordinator</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Branding package</li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="/customize/?package=executive_summit" class="btn btn-lg btn-primary">Choose Package</a>
+</div>
+</div>
+</div>
+
+<!-- Standard Corporate Package -->
+<div class="col-md-4 aws-item" data-aws-delay="200">
+<div class="card pricing-card h-100 border-warning border-2">
+<div class="card-header bg-warning text-dark text-center py-4">
+<h3 class="my-0 fw-normal">Business Conference</h3>
+<div class="display-4 fw-bold my-3">$1,500</div>
+<small class="text-dark-50">Professional business meetings</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Meeting room for 100</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Standard AV equipment</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Buffet lunch</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic event photography</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Dedicated coordinator</del></li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Branding package</del></li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="/customize/?package=business_conference" class="btn btn-lg btn-warning">Choose Package</a>
+</div>
+</div>
+</div>
+
+<!-- Budget Corporate Package -->
+<div class="col-md-4 aws-item" data-aws-delay="300">
+<div class="card pricing-card h-100 border-success border-2">
+<div class="card-header bg-success text-white text-center py-4">
+<h3 class="my-0 fw-normal">Team Workshop</h3>
+<div class="display-4 fw-bold my-3">$750</div>
+<small class="text-white-50">Small team gatherings</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Meeting room for 30</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic projector</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Coffee &amp; snacks</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Photography</del></li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Event coordinator</del></li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Branding</del></li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="/customize/?package=team_workshop" class="btn btn-lg btn-success">Choose Package</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Corporate Comparison Table -->
+<div class="mt-5 aws-item" data-aws-delay="400">
+<h3 class="text-center mb-4">Corporate Packages Comparison</h3>
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
+<thead class="table-primary">
+<tr>
+<th>Feature</th>
+<th>Executive Summit ($3,000)</th>
+<th>Business Conference ($1,500)</th>
+<th>Team Workshop ($750)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capacity</td>
+<td>200 attendees</td>
+<td>100 attendees</td>
+<td>30 attendees</td>
+</tr>
+<tr>
+<td>AV Equipment</td>
+<td>Premium full setup</td>
+<td>Standard setup</td>
+<td>Basic projector</td>
+</tr>
+<tr>
+<td>Catering</td>
+<td>Gourmet meals</td>
+<td>Buffet lunch</td>
+<td>Coffee &amp; snacks</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>Dedicated coordinator</td>
+<td>Basic assistance</td>
+<td>Self-service</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Birthday Pricing Section -->
+<section class="py-5 aws-section" data-aws-animation="fadeInUp" id="birthday">
+<div class="container">
+<h2 class="text-center mb-5"><i class="bi bi-balloon text-info me-2"></i> Birthday Packages</h2>
+<div class="row g-4">
+<!-- Premium Birthday Package -->
+<div class="col-md-4 aws-item" data-aws-delay="100">
+<div class="card pricing-card h-100 border-primary border-2">
+<div class="card-header bg-primary text-white text-center py-4">
+<h3 class="my-0 fw-normal">Grand Celebration</h3>
+<div class="display-4 fw-bold my-3">$1,200</div>
+<small class="text-white-50">Luxury birthday experience</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 100 guests</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Themed decorations</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Premium catering</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Professional photographer</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> DJ with lighting</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Custom cake</li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="/customize/?package=grand_annaprasana" class="btn btn-lg btn-primary">Choose Package</a>
+</div>
+</div>
+</div>
+
+<!-- Standard Birthday Package -->
+<div class="col-md-4 aws-item" data-aws-delay="200">
+<div class="card pricing-card h-100 border-warning border-2">
+<div class="card-header bg-warning text-dark text-center py-4">
+<h3 class="my-0 fw-normal">Family Gathering</h3>
+<div class="display-4 fw-bold my-3">$600</div>
+<small class="text-dark-50">Perfect for family celebrations</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 50 guests</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic decorations</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Buffet catering</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Professional photographer</del></li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Music system</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Standard cake</li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="/customize/?package=grand_celebration" class="btn btn-lg btn-primary">Choose Package</a>
+</div>
+</div>
+</div>
+
+<!-- Budget Birthday Package -->
+<div class="col-md-4 aws-item" data-aws-delay="300">
+<div class="card pricing-card h-100 border-success border-2">
+<div class="card-header bg-success text-white text-center py-4">
+<h3 class="my-0 fw-normal">Kids Party</h3>
+<div class="display-4 fw-bold my-3">$300</div>
+<small class="text-white-50">Fun for the little ones</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 25 kids</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Balloon decorations</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Snacks &amp; drinks</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Photographer</del></li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Music</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Small cake</li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="/customize/?package=kids_party" class="btn btn-lg btn-success">Choose Package</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Birthday Comparison Table -->
+<div class="mt-5 aws-item" data-aws-delay="400">
+<h3 class="text-center mb-4">Birthday Packages Comparison</h3>
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
+<thead class="table-primary">
+<tr>
+<th>Feature</th>
+<th>Grand Celebration ($1,200)</th>
+<th>Family Gathering ($600)</th>
+<th>Kids Party ($300)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guest Capacity</td>
+<td>100</td>
+<td>50</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Decorations</td>
+<td>Themed premium</td>
+<td>Basic</td>
+<td>Balloons</td>
+</tr>
+<tr>
+<td>Food</td>
+<td>Premium catering</td>
+<td>Buffet</td>
+<td>Snacks &amp; drinks</td>
+</tr>
+<tr>
+<td>Entertainment</td>
+<td>Professional DJ</td>
+<td>Music system</td>
+<td>Basic music</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Conference Pricing Section -->
+<section class="py-5 bg-light aws-section" data-aws-animation="fadeInUp" id="conference">
+<div class="container">
+<h2 class="text-center mb-5"><i class="bi bi-people text-secondary me-2"></i> Conference Packages</h2>
+<div class="row g-4">
+<!-- Premium Conference Package -->
+<div class="col-md-4 aws-item" data-aws-delay="100">
+<div class="card pricing-card h-100 border-primary border-2">
+<div class="card-header bg-primary text-white text-center py-4">
+<h3 class="my-0 fw-normal">International Conference</h3>
+<div class="display-4 fw-bold my-3">$4,500</div>
+<small class="text-white-50">For large-scale professional events</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Main hall + 3 breakout rooms</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Simultaneous translation</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> High-tech AV equipment</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Full catering service</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Professional event recording</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Dedicated support team</li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+<a href="{% url 'customization' %}?package=international_conference" class="btn btn-lg btn-primary">Choose Package</a>
+</div>
+</div>
+</div>
+
+<!-- Standard Conference Package -->
+<div class="col-md-4 aws-item" data-aws-delay="200">
+<div class="card pricing-card h-100 border-warning border-2">
+<div class="card-header bg-warning text-dark text-center py-4">
+<h3 class="my-0 fw-normal">Professional Seminar</h3>
+<div class="display-4 fw-bold my-3">$2,000</div>
+<small class="text-dark-50">Mid-size professional events</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Main hall + 1 breakout room</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Translation services</del></li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Standard AV equipment</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Coffee breaks &amp; lunch</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Event recording</del></li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic support</li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+<a href="{% url 'customization' %}?package=professional_seminar" class="btn btn-lg btn-warning">Choose Package</a>
+</div>
+</div>
+</div>
+
+<!-- Budget Conference Package -->
+<div class="col-md-4 aws-item" data-aws-delay="300">
+<div class="card pricing-card h-100 border-success border-2">
+<div class="card-header bg-success text-white text-center py-4">
+<h3 class="my-0 fw-normal">Workshop</h3>
+<div class="display-4 fw-bold my-3">$800</div>
+<small class="text-white-50">Small professional gatherings</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Single meeting room</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Breakout rooms</del></li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic projector</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Coffee breaks</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Recording</del></li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Support team</del></li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+<a href="{% url 'customization' %}?package=workshop" class="btn btn-lg btn-success">Choose Package</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Conference Comparison Table -->
+<div class="mt-5 aws-item" data-aws-delay="400">
+<h3 class="text-center mb-4">Conference Packages Comparison</h3>
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
+<thead class="table-primary">
+<tr>
+<th>Feature</th>
+<th>International ($4,500)</th>
+<th>Professional ($2,000)</th>
+<th>Workshop ($800)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Venue Size</td>
+<td>Main hall + 3 rooms</td>
+<td>Main hall + 1 room</td>
+<td>Single room</td>
+</tr>
+<tr>
+<td>Technology</td>
+<td>High-tech AV + translation</td>
+<td>Standard AV</td>
+<td>Basic projector</td>
+</tr>
+<tr>
+<td>Catering</td>
+<td>Full service</td>
+<td>Lunch + breaks</td>
+<td>Coffee breaks</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>Dedicated team</td>
+<td>Basic assistance</td>
+<td>Self-service</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Rice Ceremony Section -->
+<section class="py-5 aws-section" data-aws-animation="fadeInUp" id="rice">
+<div class="container">
+<h2 class="text-center mb-5"><i class="bi bi-mortarboard text-info me-2"></i> Rice Ceremony Packages</h2>
+<div class="row g-4">
+<!-- Premium Rice Ceremony Package -->
+<div class="col-md-4 aws-item" data-aws-delay="100">
+<div class="card pricing-card h-100 border-primary border-2">
+<div class="card-header bg-primary text-white text-center py-4">
+<h3 class="my-0 fw-normal">Grand Annaprasana</h3>
+<div class="display-4 fw-bold my-3">$1,500</div>
+<small class="text-white-50">Traditional grand ceremony</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 150 guests</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Traditional decor &amp; setup</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Full traditional meal</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Professional photography</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Cultural music performance</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Custom ceremony accessories</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Event coordinator</li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+<a href="{% url 'customization' %}?package=grand_annaprasana" class="btn btn-lg btn-primary">Choose Package</a>
+</div>
+</div>
+</div>
+
+<!-- Standard Rice Ceremony Package -->
+<div class="col-md-4 aws-item" data-aws-delay="200">
+<div class="card pricing-card h-100 border-warning border-2">
+<div class="card-header bg-warning text-dark text-center py-4">
+<h3 class="my-0 fw-normal">Traditional Ceremony</h3>
+<div class="display-4 fw-bold my-3">$900</div>
+<small class="text-dark-50">Beautiful traditional celebration</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 80 guests</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic traditional decor</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Light traditional meal</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic photography</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Music performance</del></li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Standard accessories</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Event coordinator</del></li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+<a href="{% url 'customization' %}?package=traditional_ceremony" class="btn btn-lg btn-warning">Choose Package</a>
+</div>
+</div>
+</div>
+
+<!-- Budget Rice Ceremony Package -->
+<div class="col-md-4 aws-item" data-aws-delay="300">
+<div class="card pricing-card h-100 border-success border-2">
+<div class="card-header bg-success text-white text-center py-4">
+<h3 class="my-0 fw-normal">Simple Blessing</h3>
+<div class="display-4 fw-bold my-3">$500</div>
+<small class="text-white-50">Intimate family ceremony</small>
+</div>
+<div class="card-body">
+<ul class="list-unstyled mt-3 mb-4">
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 30 guests</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Minimal decor</li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Snacks &amp; drinks</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Photography</del></li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Music</del></li>
+<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic accessories</li>
+<li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Coordinator</del></li>
+</ul>
+</div>
+<div class="card-footer bg-transparent border-top-0 text-center">
+<a href="{% url 'customization' %}?package=simple_blessing" class="btn btn-lg btn-success">Choose Package</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Rice Ceremony Comparison Table -->
+<div class="mt-5 aws-item" data-aws-delay="400">
+<h3 class="text-center mb-4">Rice Ceremony Packages Comparison</h3>
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
+<thead class="table-primary">
+<tr>
+<th>Feature</th>
+<th>Grand Annaprasana ($1,500)</th>
+<th>Traditional Ceremony ($900)</th>
+<th>Simple Blessing ($500)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guest Capacity</td>
+<td>150</td>
+<td>80</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Decorations</td>
+<td>Full traditional setup</td>
+<td>Basic traditional</td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td>Food</td>
+<td>Full traditional meal</td>
+<td>Light traditional meal</td>
+<td>Snacks &amp; drinks</td>
+</tr>
+<tr>
+<td>Photography</td>
+<td>Professional</td>
+<td>Basic</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Entertainment</td>
+<td>Cultural performance</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Music Concerts Section -->
+<section class="py-5 bg-light aws-section" data-aws-animation="fadeInUp" id="music">
+    <div class="container">
+    <h2 class="text-center mb-5"><i class="bi bi-music-note-beamed text-danger me-2"></i> Music Concert Packages</h2>
+    <div class="row g-4">
+    <!-- Premium Concert Package -->
+    <div class="col-md-4 aws-item" data-aws-delay="100">
+    <div class="card pricing-card h-100 border-primary border-2">
+    <div class="card-header bg-primary text-white text-center py-4">
+    <h3 class="my-0 fw-normal">Stadium Concert</h3>
+    <div class="display-4 fw-bold my-3">$15,000</div>
+    <small class="text-white-50">Large-scale professional production</small>
+    </div>
+    <div class="card-body">
+    <ul class="list-unstyled mt-3 mb-4">
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 5,000+ attendees</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Professional stage &amp; lighting</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> High-end sound system</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Backline equipment</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Full security team</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Professional video recording</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Dedicated event manager</li>
+    </ul>
+    </div>
+    <div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="{% url 'customization' %}?package=stadium_concert" class="btn btn-lg btn-primary">Choose Package</a>
+    </div>
+    </div>
+    </div>
+    
+    <!-- Standard Concert Package -->
+    <div class="col-md-4 aws-item" data-aws-delay="200">
+    <div class="card pricing-card h-100 border-warning border-2">
+    <div class="card-header bg-warning text-dark text-center py-4">
+    <h3 class="my-0 fw-normal">Concert Hall Event</h3>
+    <div class="display-4 fw-bold my-3">$7,500</div>
+    <small class="text-dark-50">Professional mid-size concert</small>
+    </div>
+    <div class="card-body">
+    <ul class="list-unstyled mt-3 mb-4">
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 1,000 attendees</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Standard stage &amp; lighting</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Professional sound system</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic backline</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Security personnel</li>
+    <li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Video recording</del></li>
+    <li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Dedicated manager</del></li>
+    </ul>
+    </div>
+    <div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="{% url 'customization' %}?package=concert_hall_event" class="btn btn-lg btn-warning">Choose Package</a>
+    </div>
+    </div>
+    </div>
+    
+    <!-- Budget Concert Package -->
+    <div class="col-md-4 aws-item" data-aws-delay="300">
+    <div class="card pricing-card h-100 border-success border-2">
+    <div class="card-header bg-success text-white text-center py-4">
+    <h3 class="my-0 fw-normal">Club Performance</h3>
+    <div class="display-4 fw-bold my-3">$3,000</div>
+    <small class="text-white-50">Small venue musical event</small>
+    </div>
+    <div class="card-body">
+    <ul class="list-unstyled mt-3 mb-4">
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Venue for 300 attendees</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Basic stage setup</li>
+    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Standard sound system</li>
+    <li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Backline equipment</del></li>
+    <li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Security</del></li>
+    <li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Recording</del></li>
+    <li class="mb-2"><i class="bi bi-x-circle-fill text-secondary me-2"></i> <del>Event manager</del></li>
+    </ul>
+    </div>
+    <div class="card-footer bg-transparent border-top-0 text-center">
+    <a href="{% url 'customization' %}?package=club_performance" class="btn btn-lg btn-success">Choose Package</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <!-- Music Concerts Comparison Table -->
+    <div class="mt-5 aws-item" data-aws-delay="400">
+    <h3 class="text-center mb-4">Music Concert Packages Comparison</h3>
+    <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+    <thead class="table-primary">
+    <tr>
+    <th>Feature</th>
+    <th>Stadium Concert ($15,000)</th>
+    <th>Concert Hall ($7,500)</th>
+    <th>Club Performance ($3,000)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Capacity</td>
+    <td>5,000+ attendees</td>
+    <td>1,000 attendees</td>
+    <td>300 attendees</td>
+    </tr>
+    <tr>
+    <td>Production</td>
+    <td>Professional stage &amp; lighting</td>
+    <td>Standard stage setup</td>
+    <td>Basic stage</td>
+    </tr>
+    <tr>
+    <td>Sound System</td>
+    <td>High-end professional</td>
+    <td>Professional</td>
+    <td>Standard</td>
+    </tr>
+    <tr>
+    <td>Equipment</td>
+    <td>Full backline included</td>
+    <td>Basic backline</td>
+    <td>None</td>
+    </tr>
+    <tr>
+    <td>Security</td>
+    <td>Full security team</td>
+    <td>Basic security</td>
+    <td>None</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    <!-- Call to Action Section -->
+    <section class="py-5 bg-primary text-white aws-section" data-aws-animation="fadeIn">
+    <div class="container text-center">
+    <h2 class="display-5 fw-bold mb-4">Ready to Plan Your Perfect Event?</h2>
+    <p class="lead mb-4">Contact us for custom packages and special requests</p>
+    <a class="btn btn-light btn-lg px-4 me-2" href="{% url 'contact' %}">Contact Us</a>
+    <a class="btn btn-outline-light btn-lg px-4" href="{% url 'browse_events' %}">Browse Events</a>
+    </div>
+    </section>
+  
+    {% endblock %}

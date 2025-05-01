@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h2>Approve Admin: {{ user.email }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <p>Name: {{ user.get_full_name }}</p>
+            <p>Registered: {{ user.date_joined|date:"M d, Y" }}</p>
+        </div>
+        <button type="submit" class="btn btn-success">Approve Admin</button>
+        <a href="{% url 'admin_pending_approvals' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4">Pending Admin Approvals</h2>
+    
+    {% if pending_admins %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Registered</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for admin in pending_admins %}
+                <tr>
+                    <td>{{ admin.email }}</td>
+                    <td>{{ admin.get_full_name }}</td>
+                    <td>{{ admin.date_joined|date:"M d, Y" }}</td>
+                    <td>
+                        <a href="{% url 'approve_admin' admin.id %}" class="btn btn-sm btn-success">
+                            <i class="bi bi-check-circle"></i> Approve
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        No pending admin approvals.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,409 @@
+{% extends 'base.html' %}
+
+{% block title %}Testimonials | Festiva{% endblock %}
+
+{% block content %}
+<div class="testimonials-page">
+    <!-- Hero Section with Background Image -->
+    <section class="testimonials-hero py-5 text-center">
+        <div class="container py-4">
+            <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">What People Say About Festiva</h1>
+            <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">Real stories from real users of our platform</p>
+            <a href="#testimonials" class="btn btn-primary btn-lg animate__animated animate__fadeInUp animate__delay-1s">
+                <i class="bi bi-chevron-down me-2"></i>View Testimonials
+            </a>
+        </div>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <!-- Filter Buttons -->
+            <div class="text-center mb-5 animate__animated" data-animation="fadeIn">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary filter-btn active" data-filter="all">All</button>
+                    <button type="button" class="btn btn-outline-primary filter-btn" data-filter="organizer">Organizers</button>
+                    <button type="button" class="btn btn-outline-primary filter-btn" data-filter="attendee">Attendees</button>
+                    <button type="button" class="btn btn-outline-primary filter-btn" data-filter="featured">Featured</button>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="row g-4">
+                <!-- Testimonial 1 - With Event Image -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp" data-category="organizer featured">
+                    <div class="card border-0 shadow-sm h-100 testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Music Festival">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0 fw-bold">Sarah Johnson</h5>
+                                    <small class="text-muted">Event Organizer | Music Festival</small>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="mb-0">"Festiva completely transformed how we manage our annual music festival. Ticket sales increased by 40% in our first year using the platform, and the attendee management tools saved us countless hours."</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
+                            <small class="text-muted"><i class="bi bi-calendar me-1"></i> March 15, 2023</small>
+                            <small><i class="bi bi-geo-alt me-1"></i> Chicago, IL</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 - With Event Image -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp" data-delay="100" data-category="attendee">
+                    <div class="card border-0 shadow-sm h-100 testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Tech Conference">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0 fw-bold">Michael Chen</h5>
+                                    <small class="text-muted">Tech Conference Attendee</small>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="mb-0">"I attend multiple tech conferences each year, and Festiva makes the ticket purchase and check-in process so smooth. The mobile ticket feature is a game-changer - no more printing tickets!"</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
+                            <small class="text-muted"><i class="bi bi-calendar me-1"></i> January 28, 2023</small>
+                            <small><i class="bi bi-geo-alt me-1"></i> San Francisco, CA</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 - With Event Image -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp" data-delay="200" data-category="organizer">
+                    <div class="card border-0 shadow-sm h-100 testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Wedding Event">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0 fw-bold">Emma Rodriguez</h5>
+                                    <small class="text-muted">Wedding Planner</small>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                            <p class="mb-0">"The customization options for private events are fantastic. We've used Festiva for over 50 weddings now, and our clients love the elegant invitation designs and RSVP tracking."</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
+                            <small class="text-muted"><i class="bi bi-calendar me-1"></i> November 5, 2022</small>
+                            <small><i class="bi bi-geo-alt me-1"></i> Miami, FL</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 - With Event Image -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp" data-category="attendee featured">
+                    <div class="card border-0 shadow-sm h-100 testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Food Festival">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David Kim" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0 fw-bold">David Kim</h5>
+                                    <small class="text-muted">Food Festival Attendee</small>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="mb-0">"I discovered so many amazing local food events through Festiva that I wouldn't have known about otherwise. The recommendation algorithm is spot-on for my tastes!"</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
+                            <small class="text-muted"><i class="bi bi-calendar me-1"></i> September 12, 2022</small>
+                            <small><i class="bi bi-geo-alt me-1"></i> Portland, OR</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 - With Event Image -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp" data-delay="100" data-category="organizer">
+                    <div class="card border-0 shadow-sm h-100 testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Corporate Event">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="James Wilson" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0 fw-bold">James Wilson</h5>
+                                    <small class="text-muted">Corporate Event Manager</small>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <p class="mb-0">"The analytics dashboard has been invaluable for our quarterly business conferences. We can now track attendee engagement in real-time and adjust our programming accordingly."</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
+                            <small class="text-muted"><i class="bi bi-calendar me-1"></i> July 8, 2022</small>
+                            <small><i class="bi bi-geo-alt me-1"></i> New York, NY</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 - With Event Image -->
+                <div class="col-md-6 col-lg-4 animate__animated" data-animation="fadeInUp" data-delay="200" data-category="attendee featured">
+                    <div class="card border-0 shadow-sm h-100 testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Yoga Retreat">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/54.jpg" alt="Priya Patel" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0 fw-bold">Priya Patel</h5>
+                                    <small class="text-muted">Yoga Retreat Attendee</small>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="mb-0">"As someone who attends wellness retreats regularly, I appreciate how Festiva keeps all my tickets in one place and sends helpful reminders about upcoming events."</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
+                            <small class="text-muted"><i class="bi bi-calendar me-1"></i> May 20, 2022</small>
+                            <small><i class="bi bi-geo-alt me-1"></i> Sedona, AZ</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonials with Thumbnail Images -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5 animate__animated" data-animation="fadeIn">
+                <h2 class="fw-bold">Video Testimonials</h2>
+                <p class="text-muted">See and hear directly from our users</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Video 1 with Thumbnail -->
+                <div class="col-md-6 animate__animated" data-animation="fadeInRight">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Video Thumbnail">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <button class="btn btn-primary btn-lg rounded-circle video-play-button" data-bs-toggle="modal" data-bs-target="#videoModal1">
+                                    <i class="bi bi-play-fill"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Music Festival Organizer</h5>
+                            <p class="card-text">"How Festiva helped us sell out our 10,000 capacity event"</p>
+                            <div class="d-flex align-items-center">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="rounded-circle me-2" width="40">
+                                <small>Sarah Johnson, Event Organizer</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2 with Thumbnail -->
+                <div class="col-md-6 animate__animated" data-animation="fadeInRight" data-delay="100">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Video Thumbnail">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <button class="btn btn-primary btn-lg rounded-circle video-play-button" data-bs-toggle="modal" data-bs-target="#videoModal2">
+                                    <i class="bi bi-play-fill"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Tech Conference Attendee</h5>
+                            <p class="card-text">"My seamless experience using Festiva for multiple events"</p>
+                            <div class="d-flex align-items-center">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen" class="rounded-circle me-2" width="40">
+                                <small>Michael Chen, Tech Professional</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modals -->
+    <div class="modal fade" id="videoModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="video1" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="videoModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="video2" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center animate__animated" data-animation="fadeIn">
+            <h2 class="fw-bold mb-4">Ready to experience Festiva for yourself?</h2>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{% url 'register' %}" class="btn btn-light btn-lg px-4">Get Started</a>
+                <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg px-4">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .testimonials-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-position: center;
+        color: white;
+    }
+    
+    .testimonial-card {
+        transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    
+    .testimonial-card .card-img-top {
+        height: 180px;
+        object-fit: cover;
+    }
+    
+    .video-play-button {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .video-play-button i {
+        font-size: 1.5rem;
+        margin-left: 3px;
+    }
+    
+    /* Animation Styles */
+    [data-animation] {
+        opacity: 0;
+    }
+    
+    /* Filter button active state */
+    .filter-btn.active {
+        background-color: #0d6efd;
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Scroll animations
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('[data-animation]');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                const animation = element.getAttribute('data-animation');
+                const delay = element.getAttribute('data-delay') || 0;
+                
+                element.style.animationDelay = `${delay}ms`;
+                element.classList.add('animate__animated', `animate__${animation}`);
+                element.style.opacity = 1;
+            }
+        });
+    };
+    
+    // Run on load and scroll
+    animateOnScroll();
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Testimonial filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const testimonials = document.querySelectorAll('[data-category]');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Filter testimonials
+            testimonials.forEach(testimonial => {
+                if (filterValue === 'all' || testimonial.getAttribute('data-category').includes(filterValue)) {
+                    testimonial.style.display = 'block';
+                } else {
+                    testimonial.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Reset video when modal closes
+    const videoModals = document.querySelectorAll('.modal');
+    videoModals.forEach(modal => {
+        modal.addEventListener('hidden.bs.modal', function () {
+            const iframe = this.querySelector('iframe');
+            iframe.src = iframe.src; // Reset video
+        });
+    });
+});
+</script>
+{% endblock %}

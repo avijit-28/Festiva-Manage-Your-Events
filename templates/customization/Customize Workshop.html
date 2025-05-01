@@ -1,0 +1,86 @@
+<!-- Customize Workshop -->
+{% extends 'base.html' %}
+{% block title %}Customize Workshop | Festiva{% endblock %}
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="card shadow">
+          <div class="card-header bg-success text-white">
+            <h2 class="h4 mb-0">Customize Workshop Package</h2>
+          </div>
+          <div class="card-body">
+            <div class="alert alert-info">
+              <h4 class="alert-heading">Base Package: Workshop</h4>
+              <p>Base Price: <strong>$<span id="base_price">800</span></strong></p>
+            </div>
+
+            <form method="post" class="needs-validation" novalidate>
+              {% csrf_token %}
+              <input type="hidden" name="package_type" value="workshop">
+
+              <div class="mb-4">
+                <h4 class="mb-3">Event Details</h4>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="event_date" class="form-label">Event Date</label>
+                    <input type="date" class="form-control" id="event_date" name="event_date" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="guest_count" class="form-label">Number of Attendees</label>
+                    <input type="number" class="form-control" id="guest_count" name="guest_count" value="30" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="mb-3">Add-Ons</h4>
+                <div class="form-check">
+                  <input class="form-check-input addon" type="checkbox" value="150" id="kits">
+                  <label class="form-check-label" for="kits">Interactive Material Kits (+$150)</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input addon" type="checkbox" value="100" id="wifi">
+                  <label class="form-check-label" for="wifi">Dedicated WiFi Access (+$100)</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input addon" type="checkbox" value="120" id="refreshments">
+                  <label class="form-check-label" for="refreshments">Refreshment Packs (+$120)</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input addon" type="checkbox" value="200" id="assistant">
+                  <label class="form-check-label" for="assistant">On-site Presenter Assistant (+$200)</label>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="mb-3">Special Requests</h4>
+                <textarea class="form-control" name="special_requests" rows="4"></textarea>
+              </div>
+
+              <div class="mb-4 text-end">
+                <h4>Total Estimated Cost: <strong>$<span id="total_cost">800</span></strong></h4>
+              </div>
+
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                <button type="reset" class="btn btn-outline-secondary btn-lg">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  function updateTotal() {
+    let total = 800;
+    document.querySelectorAll('.addon:checked').forEach(el => total += parseFloat(el.value));
+    document.getElementById('total_cost').innerText = total.toFixed(2);
+  }
+  document.querySelectorAll('.addon').forEach(el => el.addEventListener('change', updateTotal));
+  updateTotal();
+</script>
+{% endblock %}
